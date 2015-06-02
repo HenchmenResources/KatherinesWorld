@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour {
 
 	void OnGUI () {
 		if (GUI.Button (new Rect (Screen.width / 2 - 50, Screen.height / 2 - 60, 100, 30), playBtnText)) {
-			Application.LoadLevel("map");
+			Application.LoadLevel("Level1");
 		}
 		if (GUI.Button (new Rect (Screen.width / 2 - 50, Screen.height / 2, 100, 30), loadBtnText)) {
 			isLoad = true;
