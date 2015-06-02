@@ -1,0 +1,33 @@
+Basic Unit = 2 Blender Units =  2 Unity Units
+1 Unit = 1 Meter
+
+The basic environmental building block is 2x2x2 blender units.
+
+All Blocks should be sized in unit increments of 0.5 units in the X and Y axis and 2 units in the Z axis.
+
+
+File Convention:
+
+<Asset Package>_<Size XxY>_<Z Axis Location>_<Y axis Location (if needed)>_<Descriptor>_<Sub Description>.obj
+
+Z Axis Locations:
+ F = Front
+ M = Middle
+ B = Back
+ A = All
+
+Y Axis Locations:
+ F = Full ( This takes up a full 2 units in height)
+ B = Bottom
+ M = Middle
+ T = Top
+
+Example with no sub description:
+
+Aztec_2x1_A_B_Ramp.obj
+
+ - This asset is a 2 unit wide by 1 unit high ramp that can be used in all(A) Z locations and the bottom(B) Y location.
+
+Example with a sub descriptor
+
+Aztec_2x2_A_F_Cube_CutLeft.obj

@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: badf56eabf6018d41accbe3ed7281bd7
+timeCreated: 1431812681
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Master_2x0_5_A_B_Platform
+    100004: Master_2x0_5_A_M_Platform
+    100006: Master_2x0_5_A_T_Platform
+    100008: Master_2x1_A_B_Ramp
+    100010: Master_2x1_A_B_Stairs
+    100012: Master_2x1_A_B_Stairs_Collide
+    100014: Master_2x2_A_F_Cube
+    100016: Master_2x2_A_F_Cube_Cut_Left
+    100018: Master_2x2_A_F_Cube_Cut_Right
+    100020: Master_6x2_M_F_Entry_Medium
+    100022: Master_2x2_A_F_Column_Base
+    100024: Master_2x2_A_F_Column_Top
+    100026: Master_2x2_A_F_Column_Middle
+    400000: //RootNode
+    400002: Master_2x0_5_A_B_Platform
+    400004: Master_2x0_5_A_M_Platform
+    400006: Master_2x0_5_A_T_Platform
+    400008: Master_2x1_A_B_Ramp
+    400010: Master_2x1_A_B_Stairs
+    400012: Master_2x1_A_B_Stairs_Collide
+    400014: Master_2x2_A_F_Cube
+    400016: Master_2x2_A_F_Cube_Cut_Left
+    400018: Master_2x2_A_F_Cube_Cut_Right
+    400020: Master_6x2_M_F_Entry_Medium
+    400022: Master_2x2_A_F_Column_Base
+    400024: Master_2x2_A_F_Column_Top
+    400026: Master_2x2_A_F_Column_Middle
+    2300000: Master_2x0_5_A_B_Platform
+    2300002: Master_2x0_5_A_M_Platform
+    2300004: Master_2x0_5_A_T_Platform
+    2300006: Master_2x1_A_B_Ramp
+    2300008: Master_2x1_A_B_Stairs
+    2300010: Master_2x1_A_B_Stairs_Collide
+    2300012: Master_2x2_A_F_Cube
+    2300014: Master_2x2_A_F_Cube_Cut_Left
+    2300016: Master_2x2_A_F_Cube_Cut_Right
+    2300018: Master_6x2_M_F_Entry_Medium
+    2300020: Master_2x2_A_F_Column_Base
+    2300022: Master_2x2_A_F_Column_Top
+    2300024: Master_2x2_A_F_Column_Middle
+    3300000: Master_2x0_5_A_B_Platform
+    3300002: Master_2x0_5_A_M_Platform
+    3300004: Master_2x0_5_A_T_Platform
+    3300006: Master_2x1_A_B_Ramp
+    3300008: Master_2x1_A_B_Stairs
+    3300010: Master_2x1_A_B_Stairs_Collide
+    3300012: Master_2x2_A_F_Cube
+    3300014: Master_2x2_A_F_Cube_Cut_Left
+    3300016: Master_2x2_A_F_Cube_Cut_Right
+    3300018: Master_6x2_M_F_Entry_Medium
+    3300020: Master_2x2_A_F_Column_Base
+    3300022: Master_2x2_A_F_Column_Top
+    3300024: Master_2x2_A_F_Column_Middle
+    4300000: Master_2x2_A_F_Cube_Cut_Right
+    4300002: Master_2x2_A_F_Cube_Cut_Left
+    4300004: Master_2x0_5_A_T_Platform
+    4300006: Master_2x0_5_A_M_Platform
+    4300008: Master_2x0_5_A_B_Platform
+    4300010: Master_2x1_A_B_Stairs_Collide
+    4300012: Master_2x1_A_B_Stairs
+    4300014: Master_2x1_A_B_Ramp
+    4300016: Master_2x2_A_F_Cube
+    4300018: Master_6x2_M_F_Entry_Medium
+    4300020: Master_2x2_A_F_Column_Top
+    4300022: Master_2x2_A_F_Column_Base
+    4300024: Master_2x2_A_F_Column_Middle
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
