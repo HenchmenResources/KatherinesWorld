@@ -1,0 +1,446 @@
+{
+  "name": "Action Adventure",
+  "root_path": "mixamorig:Hips",
+  "clips": [
+    {
+      "name": "idle1",
+      "anim_name": "idle",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "idle2",
+      "anim_name": "idle_2",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "idle3",
+      "anim_name": "idle_3",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "walk",
+      "anim_name": "walking",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "run",
+      "anim_name": "running",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "turnLeft",
+      "anim_name": "left_turn",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "turnRight",
+      "anim_name": "right_turn",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "runStop",
+      "anim_name": "run_to_stop",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "standCrouch",
+      "anim_name": "stand_to_cover",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "crouchIdle",
+      "anim_name": "idle_4",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "crouchLeft",
+      "anim_name": "crouched_sneaking_left",
+      "type": "normal",
+      "root_motion_translation": "x"
+    },
+    {
+      "name": "crouchRight",
+      "anim_name": "crouched_sneaking_right",
+      "type": "normal",
+      "root_motion_translation": "x"
+    },
+    {
+      "name": "crouchStand",
+      "anim_name": "cover_to_stand",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "standCover",
+      "anim_name": "stand_to_cover_2",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "standIdle",
+      "anim_name": "idle_5",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "standLeft",
+      "anim_name": "left_cover_sneak",
+      "type": "normal",
+      "root_motion_translation": "x"
+    },
+    {
+      "name": "standRight",
+      "anim_name": "right_cover_sneak",
+      "type": "normal",
+      "root_motion_translation": "x"
+    },
+    {
+      "name": "standDefault",
+      "anim_name": "cover_to_stand_2",
+      "type": "normal",
+      "root_motion_translation": "z"
+    },
+    {
+      "name": "jump",
+      "anim_name": "jumping_up",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "falling",
+      "anim_name": "falling_idle",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "landHard",
+      "anim_name": "hard_landing",
+      "type": "normal",
+      "root_motion_translation": ""
+    },
+    {
+      "name": "tumble",
+      "anim_name": "falling_to_roll",
+      "type": "normal",
+      "root_motion_translation": ""
+    }
+  ],
+  "layers": [
+    {
+      "name": "full body",
+      "priority": 1,
+      "states": [
+        {
+          "name": "idle1",
+          "tree": {
+            "type": "clip",
+            "name": "idle1"
+          },
+          "transitions": [
+            {
+              "destination": "crouch_idle",
+              "type": "clip",
+              "clip": "standCrouch",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "stand_idle",
+              "type": "clip",
+              "clip": "standCover",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "idle2",
+          "is_looping": false,
+          "tree": {
+            "type": "clip",
+            "name": "idle2"
+          },
+          "transitions": [
+            {
+              "destination": "crouch_idle",
+              "type": "clip",
+              "clip": "standCrouch",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "stand_idle",
+              "type": "clip",
+              "clip": "standCover",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "idle3",
+          "is_looping": false,
+          "tree": {
+            "type": "clip",
+            "name": "idle3"
+          },
+          "transitions": [
+            {
+              "destination": "crouch_idle",
+              "type": "clip",
+              "clip": "standCrouch",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "stand_idle",
+              "type": "clip",
+              "clip": "standCover",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "move",
+          "tree": {
+            "type": "blend2d",
+            "control": "ctrl_move",
+            "blend1": {
+              "type": "clip",
+              "name": "walk"
+            },
+            "blend2": {
+              "type": "clip",
+              "name": "run"
+            }
+          },
+          "transitions": [
+            {
+              "destination": "idle1",
+              "type": "clip",
+              "clip": "runStop",
+              "duration_in": 0.2,
+              "duration_out": 0.0
+            },
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.2
+            }
+          ]
+        },
+        {
+          "name": "turn_left",
+          "tree": {
+            "type": "clip",
+            "name": "turnLeft"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "turn_right",
+          "tree": {
+            "type": "clip",
+            "name": "turnRight"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "crouch_idle",
+          "tree": {
+            "type": "clip",
+            "name": "crouchIdle"
+          },
+          "transitions": [
+            {
+              "destination": "idle1",
+              "type": "clip",
+              "clip": "crouchStand",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.2
+            }
+          ]
+        },
+        {
+          "name": "crouch_left",
+          "tree": {
+            "type": "clip",
+            "name": "crouchLeft"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "crouch_right",
+          "tree": {
+            "type": "clip",
+            "name": "crouchRight"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "stand_idle",
+          "tree": {
+            "type": "clip",
+            "name": "standIdle"
+          },
+          "transitions": [
+            {
+              "destination": "idle1",
+              "type": "clip",
+              "clip": "standDefault",
+              "duration_in": 0.2,
+              "duration_out": 0.01
+            },
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "stand_left",
+          "tree": {
+            "type": "clip",
+            "name": "standLeft"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "stand_right",
+          "tree": {
+            "type": "clip",
+            "name": "standRight"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "jump",
+          "is_looping": false,
+          "tree": {
+            "type": "clip",
+            "name": "jump"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "falling",
+          "tree": {
+            "type": "clip",
+            "name": "falling"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "land_hard",
+          "is_looping": false,
+          "tree": {
+            "type": "clip",
+            "name": "landHard"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        },
+        {
+          "name": "tumble",
+          "is_looping": false,
+          "tree": {
+            "type": "clip",
+            "name": "tumble"
+          },
+          "transitions": [
+            {
+              "destination": "*",
+              "type": "crossfade",
+              "duration": 0.3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -94,7 +94,8 @@ public class PowerUps : MonoBehaviour {
 	void Update () {
 
 		//Use selected power.
-		if (Input.GetKeyDown (KeyCode.Mouse0) && loadedPower != null) {
+		//if (Input.GetKeyDown (KeyCode.Mouse0) && loadedPower != null) {
+		if (Input.GetButton ("Fire1") && loadedPower != null) {
 			if (loadedPower == "Strength") {
 				if (!enabledStrength && manaPool >= manaStrength) {
 					enablePower ("Strength");
@@ -123,16 +124,16 @@ public class PowerUps : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.F1) && bHasStrength) {
+		if (Input.GetButton ("Strength") && bHasStrength) {
 			selectPower ("Strength", colorStrength);
 		}
-		if (Input.GetKeyDown (KeyCode.F2) && bHasFreeze) {
+		if (Input.GetButton ("Freeze") && bHasFreeze) {
 			selectPower ("Freeze", colorFreeze);
 		}
-		if (Input.GetKeyDown (KeyCode.F3) && bHasLight) {
+		if (Input.GetButton ("Light") && bHasLight) {
 			selectPower ("Light", colorLight);
 		}
-		if (Input.GetKeyDown (KeyCode.F4) && bHasShield) {
+		if (Input.GetButton ("Shield") && bHasShield) {
 			selectPower ("Shield", colorShield);
 		}
 
