@@ -8,7 +8,7 @@ public class PowerCollect : MonoBehaviour {
 	public bSetPower SetPower;
 	//private int OldPower = SetPower;
 	public GameObject PowerManager;
-	public Renderer rend;
+	private Renderer rend;
 	public GameObject bThisObject;
 
 
@@ -34,25 +34,25 @@ public class PowerCollect : MonoBehaviour {
 
 			switch (SetPower) {
 			case bSetPower.Strength:
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureStrength);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureStrengthEmit);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureStrengthEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureStrength);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureStrengthEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureStrengthEmit);
 				break;
 			case bSetPower.Freeze:
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureFreeze);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureFreezeEmit);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureFreezeEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureFreeze);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureFreezeEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureFreezeEmit);
 				break;
 			case bSetPower.Light:
 				//Material.SetTexture("_MainTex", textureLight);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureLight);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureLightEmit);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureLightEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureLight);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureLightEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureLightEmit);
 				break;
 			case bSetPower.Shield:
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureShield);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureShieldEmit);
-				bThisObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureShieldEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureShield);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionMap", textureShieldEmit);
+				gameObject.GetComponent<Renderer>().material.SetTexture("_EmissionColor", textureShieldEmit);
 				break;
 			default:
 				break;
@@ -67,8 +67,8 @@ public class PowerCollect : MonoBehaviour {
 		case bSetPower.Strength:
 			powerupScript.bHasStrength = true;
 			powerupScript.powersEnabled = true;
-			if (!substance.GetProceduralBoolean ("EnableColorFade")) {
-				substance.SetProceduralBoolean ("EnableColorFade", true);
+			if (!substance.GetProceduralBoolean ("EnablePowers")) {
+				substance.SetProceduralBoolean ("EnablePowers", true);
 				substance.RebuildTextures ();
 			}
 			powerupScript.selectPower ("Strength", powerupScript.colorStrength);
@@ -76,8 +76,8 @@ public class PowerCollect : MonoBehaviour {
 		case bSetPower.Freeze:
 			powerupScript.bHasFreeze = true;
 			powerupScript.powersEnabled = true;
-			if (!substance.GetProceduralBoolean ("EnableColorFade")) {
-				substance.SetProceduralBoolean ("EnableColorFade", true);
+			if (!substance.GetProceduralBoolean ("EnablePowers")) {
+				substance.SetProceduralBoolean ("EnablePowers", true);
 				substance.RebuildTextures ();
 			}
 			powerupScript.selectPower ("Freeze", powerupScript.colorFreeze);
@@ -85,8 +85,8 @@ public class PowerCollect : MonoBehaviour {
 		case bSetPower.Light:
 			powerupScript.bHasLight= true;
 			powerupScript.powersEnabled = true;
-			if (!substance.GetProceduralBoolean ("EnableColorFade")) {
-				substance.SetProceduralBoolean ("EnableColorFade", true);
+			if (!substance.GetProceduralBoolean ("EnablePowers")) {
+				substance.SetProceduralBoolean ("EnablePowers", true);
 				substance.RebuildTextures ();
 			}
 			powerupScript.selectPower ("Light", powerupScript.colorLight);
@@ -94,8 +94,8 @@ public class PowerCollect : MonoBehaviour {
 		case bSetPower.Shield:
 			powerupScript.bHasShield = true;
 			powerupScript.powersEnabled = true;
-			if (!substance.GetProceduralBoolean ("EnableColorFade")) {
-				substance.SetProceduralBoolean ("EnableColorFade", true);
+			if (!substance.GetProceduralBoolean ("EnablePowers")) {
+				substance.SetProceduralBoolean ("EnableCPowers", true);
 				substance.RebuildTextures ();
 			}
 			powerupScript.selectPower ("Shield", powerupScript.colorShield);

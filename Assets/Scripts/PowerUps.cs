@@ -4,18 +4,18 @@ using System.Collections;
 public class PowerUps : MonoBehaviour {
 	public GameObject PlayerChar;
 	//SETUP RENDERER
-	public Renderer rend;
+	private Renderer rend;
 	//SETUP MANA POOL
 	public float manaPool = 100F;
 	public float maxManaPool = 100F;
 	//public GUIStyle : myGUIStyle;
 
 	//Track Color change direction
-	public bool useColor1 = true; //Tells us which direction to move gradient
-	public bool bColorChange = false;
-	public float colorFadeLow; //private
-	public float colorFadeHigh;
-	public float colorFadeMid;
+	private bool useColor1 = true; //Tells us which direction to move gradient
+	private bool bColorChange = false;
+	private float colorFadeLow; //private
+	private float colorFadeHigh;
+	private float colorFadeMid;
 	public float fadeSpeed = 0.1f;
 
 	private string loadedPower;
@@ -34,10 +34,10 @@ public class PowerUps : MonoBehaviour {
 	public bool enabledLight = false;
 	public bool enabledShield = false;
 	//Variables for tracking the start time of powerups
-	public float timerStrength = 0.0F; //Private
-	public float timerFreeze = 0.0F; //Private
-	public float timerLight = 0.0F; //Private
-	public float timerShield = 0.0F; //Private
+	private float timerStrength = 0.0F; //Private
+	private float timerFreeze = 0.0F; //Private
+	private float timerLight = 0.0F; //Private
+	private float timerShield = 0.0F; //Private
 	//Amount of time each power should last
 	public float maxTimeStrength = 10F;
 	public float maxTimeFreeze = 10F;
@@ -72,29 +72,12 @@ public class PowerUps : MonoBehaviour {
 		substance.SetProceduralFloat("DressFadeLow", colorFadeLow);
 		substance.RebuildTextures();
 		particleStrength = PlayerChar.transform.Find("Flames").gameObject;
-		//colorStrength [0] = 1.0F;
-		//colorStrength [1] = 0.0F;
-		//colorStrength [2] = 0.0F;
-		//colorStrength [3] = 1.0F;
-		//colorFreeze [0] = 0.271F;
-		//colorFreeze [1] = 0.831F;
-		//colorFreeze [2] = 1.0F;
-		//colorFreeze [3] = 1.0F;
-		//colorLight [0] = 1.0F;
-		//colorLight [1] = 1.0F;
-		//colorLight [2] = 0.737F;
-		//colorLight [3] = 1.0F;
-		//colorShield [0] = 0.745F;
-		//colorShield [1] = 1.0F;
-		//colorShield [2] = 0.737F;
-		//colorShield [3] = 1.0F;
 
 	}
 
 	void Update () {
 
 		//Use selected power.
-		//if (Input.GetKeyDown (KeyCode.Mouse0) && loadedPower != null) {
 		if (Input.GetButton ("Fire1") && loadedPower != null) {
 			if (loadedPower == "Strength") {
 				if (!enabledStrength && manaPool >= manaStrength) {
