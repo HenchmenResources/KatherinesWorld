@@ -26,8 +26,10 @@ public class MapEnd : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter() {
-		bMapDone = true;
-		endTimer = Time.time;
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Player") {
+		 bMapDone = true;
+		 endTimer = Time.time;
+		}
 	}	
 }
