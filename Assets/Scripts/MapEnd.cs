@@ -19,7 +19,8 @@ public class MapEnd : MonoBehaviour {
 		if (bMapDone) {
 			SuccessNotice.SetActive (true);
 			if (Input.anyKey && (endTimer+5 < Time.time)) {
-				Application.LoadLevel(nextMap);
+				//Application.LoadLevel(nextMap);
+				Application.LoadLevel ("worldMap");
 			}
 		}
 	
