@@ -3,18 +3,16 @@ using System.Collections;
 
 public class KillOnContact : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public SpawnPoint spawner;
 
-    void OnTriggerEnter()
+    //void Awake()
+    //{
+    //    spawner = GameObject.FindGameObjectWithTag("SpawnPoint");
+    //}
+
+    void OnTriggerEnter(Collider c)
     {
-        Application.LoadLevel(Application.loadedLevelName);
+        c.gameObject.GetComponent<Player>().lives--;
+        spawner.SpawnPlayer();
     }
 }

@@ -126,12 +126,12 @@ public class PowerUps : MonoBehaviour {
 		}
 		
 		//Manage Timer for Strength Power UP
-		if (enabledStrength && (maxTimeStrength + timerStrength) < Time.time) {
+		if (enabledStrength && (((maxTimeStrength + timerStrength) < Time.time) || Input.GetButton("Strength"))) {
 			disablePower("Strength");
 		}
 
 		//Manage Timer for Freeze Power UP
-		if (enabledFreeze && (maxTimeFreeze + timerFreeze) < Time.time) {
+		if (enabledFreeze && (((maxTimeFreeze + timerFreeze) < Time.time) || Input.GetButton("Freeze"))) {
 			disablePower("Freeze");
 		}
 
@@ -180,9 +180,16 @@ public class PowerUps : MonoBehaviour {
 			}
 		}
 
-		if (enabledFreeze) {
+        if (manaPool >= maxManaPool)
+        {
+            manaPool = maxManaPool;
+        }
 
-		}
+        // mana regeneration
+        if (manaPool < maxManaPool)
+        {
+            manaPool = manaPool + Time.deltaTime;
+        }
 		
 	}
 
@@ -302,5 +309,4 @@ public class PowerUps : MonoBehaviour {
 			break;
 		}
 	}
-
 }
