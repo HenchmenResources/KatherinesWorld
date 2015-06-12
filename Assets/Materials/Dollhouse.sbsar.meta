@@ -1,0 +1,581 @@
+fileFormatVersion: 2
+guid: 994f7dad3e2ec964082fa9240dad9e3d
+timeCreated: 1434141985
+licenseType: Free
+SubstanceImporter:
+  serializedVersion: 5
+  materialInstances:
+  - serializedVersion: 16
+    name: 6x6_FloorWStairs
+    prototypeName: 6x6_FloorWStairs
+    shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: 
+    renderQueue: -1
+    lightmapFlags: 5
+    inputs:
+    - name: $randomseed
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    materialInformation:
+      serializedVersion: 5
+      offset: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      generateMipmaps: 1
+      generateAllOutputs: 0
+      animationUpdateRate: 0
+    materialProperties:
+      serializedVersion: 2
+      texEnvs:
+        data:
+          first:
+            name: _MainTex
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _BumpMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailNormalMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailMask
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailAlbedoMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _MetallicGlossMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+      floats:
+        data:
+          first:
+            name: _Cutoff
+          second: .5
+        data:
+          first:
+            name: _SrcBlend
+          second: 1
+        data:
+          first:
+            name: _DstBlend
+          second: 0
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
+        data:
+          first:
+            name: _ZWrite
+          second: 1
+        data:
+          first:
+            name: _Glossiness
+          second: .5
+        data:
+          first:
+            name: _BumpScale
+          second: 1
+        data:
+          first:
+            name: _OcclusionStrength
+          second: 1
+        data:
+          first:
+            name: _DetailNormalMapScale
+          second: 1
+        data:
+          first:
+            name: _UVSec
+          second: 0
+        data:
+          first:
+            name: _Mode
+          second: 0
+        data:
+          first:
+            name: _EmissionScaleUI
+          second: 0
+        data:
+          first:
+            name: _Metallic
+          second: 0
+      colors:
+        data:
+          first:
+            name: _EmissionColor
+          second: {r: 0, g: 0, b: 0, a: 1}
+        data:
+          first:
+            name: _Color
+          second: {r: 1, g: 1, b: 1, a: 1}
+        data:
+          first:
+            name: _EmissionColorUI
+          second: {r: 1, g: 1, b: 1, a: 1}
+    textureParameters:
+    - name: 6x6_FloorWStairs_basecolor
+      alphaSource: 6
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: 6x6_FloorWStairs_normal
+      alphaSource: 0
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: 6x6_FloorWStairs_metallic
+      alphaSource: 7
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    textureAssignments:
+    - shaderProp:
+        name: _MainTex
+      material: {instanceID: 0}
+      baseUID: 1553382759
+    - shaderProp:
+        name: _BumpMap
+      material: {instanceID: 0}
+      baseUID: 1553382757
+    - shaderProp:
+        name: _MetallicGlossMap
+      material: {instanceID: 0}
+      baseUID: 1553382753
+    buildTargetSettings:
+    - serializedVersion: 2
+      buildTarget: 
+      textureWidth: 512
+      textureHeight: 512
+      textureFormat: 0
+      loadingBehavior: 1
+  - serializedVersion: 16
+    name: Dollhouse
+    prototypeName: Dollhouse
+    shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: 
+    renderQueue: -1
+    lightmapFlags: 5
+    inputs:
+    - name: $randomseed
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    materialInformation:
+      serializedVersion: 5
+      offset: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      generateMipmaps: 1
+      generateAllOutputs: 0
+      animationUpdateRate: 0
+    materialProperties:
+      serializedVersion: 2
+      texEnvs:
+        data:
+          first:
+            name: _MainTex
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _BumpMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailNormalMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailMask
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailAlbedoMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _MetallicGlossMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+      floats:
+        data:
+          first:
+            name: _Cutoff
+          second: .5
+        data:
+          first:
+            name: _SrcBlend
+          second: 1
+        data:
+          first:
+            name: _DstBlend
+          second: 0
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
+        data:
+          first:
+            name: _ZWrite
+          second: 1
+        data:
+          first:
+            name: _Glossiness
+          second: .5
+        data:
+          first:
+            name: _BumpScale
+          second: 1
+        data:
+          first:
+            name: _OcclusionStrength
+          second: 1
+        data:
+          first:
+            name: _DetailNormalMapScale
+          second: 1
+        data:
+          first:
+            name: _UVSec
+          second: 0
+        data:
+          first:
+            name: _Mode
+          second: 0
+        data:
+          first:
+            name: _EmissionScaleUI
+          second: 0
+        data:
+          first:
+            name: _Metallic
+          second: 0
+      colors:
+        data:
+          first:
+            name: _EmissionColor
+          second: {r: 0, g: 0, b: 0, a: 1}
+        data:
+          first:
+            name: _Color
+          second: {r: 1, g: 1, b: 1, a: 1}
+        data:
+          first:
+            name: _EmissionColorUI
+          second: {r: 1, g: 1, b: 1, a: 1}
+    textureParameters:
+    - name: Dollhouse_basecolor
+      alphaSource: 6
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: Dollhouse_normal
+      alphaSource: 0
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: Dollhouse_metallic
+      alphaSource: 7
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    textureAssignments:
+    - shaderProp:
+        name: _MainTex
+      material: {instanceID: 0}
+      baseUID: 1706128739
+    - shaderProp:
+        name: _BumpMap
+      material: {instanceID: 0}
+      baseUID: 1706128765
+    - shaderProp:
+        name: _MetallicGlossMap
+      material: {instanceID: 0}
+      baseUID: 1706128761
+    buildTargetSettings:
+    - serializedVersion: 2
+      buildTarget: 
+      textureWidth: 512
+      textureHeight: 512
+      textureFormat: 0
+      loadingBehavior: 1
+  - serializedVersion: 16
+    name: Wall_001
+    prototypeName: Wall_001
+    shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: 
+    renderQueue: -1
+    lightmapFlags: 5
+    inputs:
+    - name: $randomseed
+      value:
+        scalar[0]: 7925
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    materialInformation:
+      serializedVersion: 5
+      offset: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
+      generateMipmaps: 1
+      generateAllOutputs: 0
+      animationUpdateRate: 0
+    materialProperties:
+      serializedVersion: 2
+      texEnvs:
+        data:
+          first:
+            name: _MainTex
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _BumpMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailNormalMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailMask
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _DetailAlbedoMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _MetallicGlossMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+      floats:
+        data:
+          first:
+            name: _Cutoff
+          second: .5
+        data:
+          first:
+            name: _SrcBlend
+          second: 1
+        data:
+          first:
+            name: _DstBlend
+          second: 0
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
+        data:
+          first:
+            name: _ZWrite
+          second: 1
+        data:
+          first:
+            name: _Glossiness
+          second: .5
+        data:
+          first:
+            name: _BumpScale
+          second: 1
+        data:
+          first:
+            name: _OcclusionStrength
+          second: 1
+        data:
+          first:
+            name: _DetailNormalMapScale
+          second: 1
+        data:
+          first:
+            name: _UVSec
+          second: 0
+        data:
+          first:
+            name: _Mode
+          second: 0
+        data:
+          first:
+            name: _EmissionScaleUI
+          second: 0
+        data:
+          first:
+            name: _Metallic
+          second: 0
+      colors:
+        data:
+          first:
+            name: _EmissionColor
+          second: {r: 0, g: 0, b: 0, a: 1}
+        data:
+          first:
+            name: _Color
+          second: {r: 1, g: 1, b: 1, a: 1}
+        data:
+          first:
+            name: _EmissionColorUI
+          second: {r: 1, g: 1, b: 1, a: 1}
+    textureParameters:
+    - name: Wall_001_basecolor
+      alphaSource: 6
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: Wall_001_normal
+      alphaSource: 0
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    - name: Wall_001_metallic
+      alphaSource: 7
+      filterMode: 1
+      aniso: 1
+      wrapMode: 0
+    textureAssignments:
+    - shaderProp:
+        name: _MainTex
+      material: {instanceID: 0}
+      baseUID: 2258764304
+    - shaderProp:
+        name: _BumpMap
+      material: {instanceID: 0}
+      baseUID: 2258764306
+    - shaderProp:
+        name: _MetallicGlossMap
+      material: {instanceID: 0}
+      baseUID: 2258764310
+    buildTargetSettings:
+    - serializedVersion: 2
+      buildTarget: 
+      textureWidth: 512
+      textureHeight: 512
+      textureFormat: 0
+      loadingBehavior: 1
+  deletedPrototypes: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
