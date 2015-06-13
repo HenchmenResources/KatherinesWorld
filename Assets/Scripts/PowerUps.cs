@@ -230,7 +230,10 @@ public class PowerUps : MonoBehaviour {
 		}
 		
 		//Mana Bar
-		GUI.Box (new Rect (25, 25, manaPool * 2F, 20), "Mana " + Mathf.Round((manaPool/maxManaPool)*100F).ToString() + "%");
+		if (powersEnabled) {
+			//ONLY SHOW MANA BAR IF POWERS ARE ENABLED
+			GUI.Box (new Rect (25, 25, manaPool * 2F, 20), "Mana " + Mathf.Round ((manaPool / maxManaPool) * 100F).ToString () + "%");
+		}
 	}
 
 	void ProceduralPropertiesGUI (int windowId) {

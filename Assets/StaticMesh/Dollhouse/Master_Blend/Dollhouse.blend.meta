@@ -12,6 +12,11 @@ ModelImporter:
     100008: DH_3D_6x6_WallBack
     100010: DH_3D_6x6_WallBack_Window
     100012: DH_3D_Window_Hald_Round
+    100014: DH_3D_Floor_W_Stairs
+    100016: DH_3D_Floor_W_Stairs_High
+    100018: DH_3D_WallMoulding
+    100020: DH_3D_WallMoulding_High
+    100022: DH_3D_6x6_Floor_Stair_Col
     400000: Cube
     400002: DH_3D_5x5_SideWall
     400004: //RootNode
@@ -19,24 +24,44 @@ ModelImporter:
     400008: DH_3D_6x6_WallBack
     400010: DH_3D_6x6_WallBack_Window
     400012: DH_3D_Window_Hald_Round
+    400014: DH_3D_Floor_W_Stairs
+    400016: DH_3D_Floor_W_Stairs_High
+    400018: DH_3D_WallMoulding
+    400020: DH_3D_WallMoulding_High
+    400022: DH_3D_6x6_Floor_Stair_Col
     2300000: Cube
     2300002: DH_3D_5x5_SideWall
     2300004: DH_3D_5x5_SideWall_Door
     2300006: DH_3D_6x6_WallBack
     2300008: DH_3D_6x6_WallBack_Window
     2300010: DH_3D_Window_Hald_Round
+    2300012: DH_3D_Floor_W_Stairs
+    2300014: DH_3D_Floor_W_Stairs_High
+    2300016: DH_3D_WallMoulding
+    2300018: DH_3D_WallMoulding_High
+    2300020: DH_3D_6x6_Floor_Stair_Col
     3300000: Cube
     3300002: DH_3D_5x5_SideWall
     3300004: DH_3D_5x5_SideWall_Door
     3300006: DH_3D_6x6_WallBack
     3300008: DH_3D_6x6_WallBack_Window
     3300010: DH_3D_Window_Hald_Round
+    3300012: DH_3D_Floor_W_Stairs
+    3300014: DH_3D_Floor_W_Stairs_High
+    3300016: DH_3D_WallMoulding
+    3300018: DH_3D_WallMoulding_High
+    3300020: DH_3D_6x6_Floor_Stair_Col
     4300000: DH_3D_5x5_SideWall
     4300002: Cube
     4300004: DH_3D_Window_Hald_Round
     4300006: DH_3D_6x6_WallBack_Window
     4300008: DH_3D_6x6_WallBack
     4300010: DH_3D_5x5_SideWall_Door
+    4300012: DH_3D_Floor_W_Stairs_High
+    4300014: DH_3D_Floor_W_Stairs
+    4300016: DH_3D_WallMoulding_High
+    4300018: DH_3D_WallMoulding
+    4300020: DH_3D_6x6_Floor_Stair_Col
     7400000: Default Take
     9500000: //RootNode
   materials:
