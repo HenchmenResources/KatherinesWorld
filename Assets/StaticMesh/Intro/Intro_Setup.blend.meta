@@ -165,6 +165,22 @@ ModelImporter:
     100314: wallDoor
     100316: wallDoor1
     100318: wallDoor2
+    100320: Intro_3D_Bed_Canopy
+    100322: Intro_3D_Bed_Curtains
+    100324: Intro_3D_Bed_Frame
+    100326: Intro_3D_Blanket
+    100328: Intro_3d_Curtain_Rod
+    100330: Intro_3D_Floor
+    100332: Intro_3D_Mattress
+    100334: Intro_3D_Pillows
+    100336: Intro_3D_Side_Wall
+    100338: Intro_3D_Wall_Back
+    100340: Intro_3D_Wall_Lamp
+    100342: Intro_3D_Window
+    100344: Intro_3D_WindowCurtains
+    100346: Intro_3d_Ceiling
+    100348: Intro_3D_Ceiling
+    100350: Intro_3D_Chest
     400000: Bed
     400002: Bed_Frame
     400004: Blanket
@@ -325,6 +341,22 @@ ModelImporter:
     400314: wallDoor
     400316: wallDoor1
     400318: wallDoor2
+    400320: Intro_3D_Bed_Canopy
+    400322: Intro_3D_Bed_Curtains
+    400324: Intro_3D_Bed_Frame
+    400326: Intro_3D_Blanket
+    400328: Intro_3d_Curtain_Rod
+    400330: Intro_3D_Floor
+    400332: Intro_3D_Mattress
+    400334: Intro_3D_Pillows
+    400336: Intro_3D_Side_Wall
+    400338: Intro_3D_Wall_Back
+    400340: Intro_3D_Wall_Lamp
+    400342: Intro_3D_Window
+    400344: Intro_3D_WindowCurtains
+    400346: Intro_3d_Ceiling
+    400348: Intro_3D_Ceiling
+    400350: Intro_3D_Chest
     2300000: Bed
     2300002: Bed_Frame
     2300004: Blanket
@@ -400,6 +432,22 @@ ModelImporter:
     2300144: wallDoor
     2300146: wallDoor1
     2300148: wallDoor2
+    2300150: Intro_3D_Bed_Canopy
+    2300152: Intro_3D_Bed_Curtains
+    2300154: Intro_3D_Bed_Frame
+    2300156: Intro_3D_Blanket
+    2300158: Intro_3d_Curtain_Rod
+    2300160: Intro_3D_Floor
+    2300162: Intro_3D_Mattress
+    2300164: Intro_3D_Pillows
+    2300166: Intro_3D_Side_Wall
+    2300168: Intro_3D_Wall_Back
+    2300170: Intro_3D_Wall_Lamp
+    2300172: Intro_3D_Window
+    2300174: Intro_3D_WindowCurtains
+    2300176: Intro_3d_Ceiling
+    2300178: Intro_3D_Ceiling
+    2300180: Intro_3D_Chest
     3300000: Bed
     3300002: Bed_Frame
     3300004: Blanket
@@ -475,6 +523,22 @@ ModelImporter:
     3300144: wallDoor
     3300146: wallDoor1
     3300148: wallDoor2
+    3300150: Intro_3D_Bed_Canopy
+    3300152: Intro_3D_Bed_Curtains
+    3300154: Intro_3D_Bed_Frame
+    3300156: Intro_3D_Blanket
+    3300158: Intro_3d_Curtain_Rod
+    3300160: Intro_3D_Floor
+    3300162: Intro_3D_Mattress
+    3300164: Intro_3D_Pillows
+    3300166: Intro_3D_Side_Wall
+    3300168: Intro_3D_Wall_Back
+    3300170: Intro_3D_Wall_Lamp
+    3300172: Intro_3D_Window
+    3300174: Intro_3D_WindowCurtains
+    3300176: Intro_3d_Ceiling
+    3300178: Intro_3D_Ceiling
+    3300180: Intro_3D_Chest
     4300000: Cube_009
     4300002: Cube_008
     4300004: Cube_007
@@ -552,6 +616,22 @@ ModelImporter:
     4300148: floor
     4300150: houseRoof
     4300152: houseFrame
+    4300154: Intro_3D_Window
+    4300156: Intro_3d_Curtain_Rod
+    4300158: Intro_3D_WindowCurtains
+    4300160: Intro_3D_Wall_Lamp
+    4300162: Intro_3D_Wall_Back
+    4300164: Intro_3D_Side_Wall
+    4300166: Intro_3D_Pillows
+    4300168: Intro_3D_Mattress
+    4300170: Intro_3D_Bed_Frame
+    4300172: Intro_3D_Blanket
+    4300174: Intro_3D_Floor
+    4300176: Intro_3D_Bed_Canopy
+    4300178: Intro_3D_Bed_Curtains
+    4300180: Intro_3d_Ceiling
+    4300182: Intro_3D_Chest
+    4300184: Intro_3D_Ceiling
     7400000: Default Take
     7400002: mixamorig_HipsAction
     9500000: //RootNode

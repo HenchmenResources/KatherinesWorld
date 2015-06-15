@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 994f7dad3e2ec964082fa9240dad9e3d
-timeCreated: 1434236355
+timeCreated: 1434268595
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -13,6 +13,13 @@ SubstanceImporter:
     renderQueue: -1
     lightmapFlags: 5
     inputs:
+    - name: $outputsize
+      value:
+        scalar[0]: 8
+        scalar[1]: 8
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
     - name: $randomseed
       value:
         scalar[0]: 0
@@ -194,7 +201,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Dollhouse
     prototypeName: Dollhouse
@@ -393,16 +400,16 @@ SubstanceImporter:
     renderQueue: -1
     lightmapFlags: 5
     inputs:
-    - name: Dirt_Intensity
+    - name: $randomseed
       value:
-        scalar[0]: .66900003
+        scalar[0]: 0
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: $randomseed
+    - name: Dirt_Intensity
       value:
-        scalar[0]: 0
+        scalar[0]: .547203004
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -581,7 +588,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Wall_Moulding
     prototypeName: Wall_Moulding
@@ -778,7 +785,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   deletedPrototypes: []
   userData: 
   assetBundleName: 
