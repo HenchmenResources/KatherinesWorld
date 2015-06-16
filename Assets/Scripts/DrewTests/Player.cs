@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float gravity = 20.0F;
     public CharacterController controller;
     public GameObject powerManager;
-    public float pushPower = 0.5f;
+    //public float pushPower = 0.5f;
     public bool isGrabbing = false;
     public int lives;
 
