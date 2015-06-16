@@ -12,7 +12,10 @@ public class KillOnContact : MonoBehaviour {
 
     void OnTriggerEnter(Collider c)
     {
-        c.gameObject.GetComponent<Player>().lives--;
-        spawner.SpawnPlayer();
+        if (c.gameObject.tag == "Player")
+        {
+            c.gameObject.GetComponent<Player>().lives--;
+            spawner.SpawnPlayer();
+        }
     }
 }

@@ -44,8 +44,8 @@ public class PowerUps : MonoBehaviour {
 	public float maxTimeLight = 10F;
 	public float maxTimeShield = 10F;
 	//Amount of mana each power should use
-	public float manaStrength = 15F;
-	public float manaFreeze = 15F;
+	public float manaStrength = 30F;
+	public float manaFreeze = 30F;
 	public float manaLight = 0.01F;
 	public float manaShield = 0.01F;
 	//SETUP Color arrays
@@ -126,12 +126,12 @@ public class PowerUps : MonoBehaviour {
 		}
 		
 		//Manage Timer for Strength Power UP
-		if (enabledStrength && (((maxTimeStrength + timerStrength) < Time.time) || Input.GetButton("Strength"))) {
+		if (enabledStrength && ((maxTimeStrength + timerStrength) < Time.time)) {
 			disablePower("Strength");
 		}
 
 		//Manage Timer for Freeze Power UP
-		if (enabledFreeze && (((maxTimeFreeze + timerFreeze) < Time.time) || Input.GetButton("Freeze"))) {
+		if (enabledFreeze && ((maxTimeFreeze + timerFreeze) < Time.time)) {
 			disablePower("Freeze");
 		}
 
@@ -273,6 +273,7 @@ public class PowerUps : MonoBehaviour {
 			timerStrength = Time.time;
 			enabledStrength = true;
 			particleStrength.GetComponent<ParticleSystem>().Play();
+            PlayerChar.gameObject.GetComponent<Player>().jumpSpeed = 12.0f;
 			break;
 		case "Freeze":
 			timerFreeze = Time.time;

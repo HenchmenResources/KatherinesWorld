@@ -4,9 +4,10 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public float speed = 6.0F;
-    public float jumpSpeed = 12.0F;
+    public float jumpSpeed = 9.0F;
     public float gravity = 20.0F;
     public CharacterController controller;
+    public GameObject powerManager;
     public float pushPower = 0.5f;
     public bool isGrabbing = false;
     public int lives;
@@ -55,13 +56,11 @@ public class Player : MonoBehaviour
                     if (platformObject.GetComponent<TwoPointMover>().outgoing == true)
                     {
                         Vector3 movement = new Vector3(platformObject.GetComponent<TwoPointMover>().bSpeed, 0, 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                     else
                     {
                         Vector3 movement = new Vector3(-platformObject.GetComponent<TwoPointMover>().bSpeed, 0, 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                 }
@@ -70,13 +69,11 @@ public class Player : MonoBehaviour
                     if (platformObject.GetComponent<TwoPointMover>().outgoing == true)
                     {
                         Vector3 movement = new Vector3(0, platformObject.GetComponent<TwoPointMover>().bSpeed, 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                     else
                     {
                         Vector3 movement = new Vector3(0, -platformObject.GetComponent<TwoPointMover>().bSpeed, 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                 }
@@ -86,14 +83,12 @@ public class Player : MonoBehaviour
                     {
                         Vector3 movement = new Vector3((platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Cos(platformObject.GetComponent<TwoPointMover>().bAngle)),
                                                         (platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Sin(platformObject.GetComponent<TwoPointMover>().bAngle)), 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                     else
                     {
                         Vector3 movement = new Vector3(-(platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Cos(platformObject.GetComponent<TwoPointMover>().bAngle)),
                                                         -(platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Sin(platformObject.GetComponent<TwoPointMover>().bAngle)), 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                 }
@@ -103,14 +98,12 @@ public class Player : MonoBehaviour
                     {
                         Vector3 movement = new Vector3(-(platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Cos(platformObject.GetComponent<TwoPointMover>().bAngle)),
                                                         (platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Sin(platformObject.GetComponent<TwoPointMover>().bAngle)), 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                     else
                     {
                         Vector3 movement = new Vector3((platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Cos(platformObject.GetComponent<TwoPointMover>().bAngle)),
                                                         -(platformObject.GetComponent<TwoPointMover>().bSpeed * Mathf.Sin(platformObject.GetComponent<TwoPointMover>().bAngle)), 0);
-                        Debug.Log(movement);
                         controller.Move(movement * Time.deltaTime);
                     }
                 }
@@ -148,34 +141,31 @@ public class Player : MonoBehaviour
     //Behavior for various objects with which the player collides.
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-
         // Check if the object we just collided with is a tagged as "moving"
         if (hit.gameObject.tag == "FreezeEffectHorizontal" || hit.gameObject.tag == "FreezeEffectVertical" || hit.gameObject.tag == "FreezeEffectDiagonalPos" || hit.gameObject.tag == "FreezeEffectDiagonalNeg")
         {
-
             // set our private variables to keep track of whether we're on the platform, and a reference to the platform we are on
             onPlatform = true;
             platformObject = hit.gameObject;
-
-            // If we're not on a "moving" object we must be on the ground, set the onPlatform variable to false so we don't move 
         }
         else
         {
             onPlatform = false;
         }
 
-        if ((hit.gameObject.tag == "DraggableLarge" || hit.gameObject.tag == "DraggableSmall") && isGrabbing == true)
+        if (((hit.gameObject.tag == "DraggableLarge" && powerManager.gameObject.GetComponent<PowerUps>().enabledStrength == true) || hit.gameObject.tag == "DraggableSmall") && isGrabbing == true)
         {
             objectGrabbed = true;
             draggableObject = hit.collider.attachedRigidbody;
-            
-            if (draggableObject == null || draggableObject.isKinematic)
+
+            if (draggableObject == null || draggableObject.isKinematic == true)
                 return;
             if (hit.moveDirection.y < -0.3)
                 return;
 
             Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, 0);
-            draggableObject.velocity = pushDir * pushPower;
+            Debug.Log(pushDir);
+            draggableObject.transform.position = draggableObject.transform.position + (pushDir * 0.05f);
         }
         else
         {
