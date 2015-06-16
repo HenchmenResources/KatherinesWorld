@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d016d95eda9dde34e85b4bf9dd6fe5d0
-timeCreated: 1434399319
+timeCreated: 1434432631
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -212,9 +212,9 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Cloth_Color
       value:
-        scalar[0]: .203922004
-        scalar[1]: .0903638974
-        scalar[2]: .0903638974
+        scalar[0]: .389705896
+        scalar[1]: .172690257
+        scalar[2]: .258858263
         scalar[3]: 1
         texture: {instanceID: 0}
     materialInformation:
@@ -391,7 +391,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Intro_Room
     prototypeName: Intro_Room
@@ -768,8 +768,8 @@ SubstanceImporter:
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
-      textureWidth: 2048
-      textureHeight: 2048
+      textureWidth: 512
+      textureHeight: 512
       textureFormat: 0
       loadingBehavior: 4
   - serializedVersion: 16
@@ -961,12 +961,12 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Wall_Lamp
     prototypeName: Wall_Lamp
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: 
+    shaderKeywords: _METALLICGLOSSMAP _NORMALMAP
     renderQueue: -1
     lightmapFlags: 5
     inputs:
@@ -1107,7 +1107,7 @@ SubstanceImporter:
         data:
           first:
             name: _EmissionColor
-          second: {r: 0, g: 0, b: 0, a: 1}
+          second: {r: 0, g: 0, b: 0, a: 0}
         data:
           first:
             name: _Color
@@ -1148,10 +1148,10 @@ SubstanceImporter:
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
-      textureWidth: 512
-      textureHeight: 512
+      textureWidth: 128
+      textureHeight: 128
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   deletedPrototypes: []
   userData: 
   assetBundleName: 

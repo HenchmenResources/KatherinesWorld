@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 54d4e200835e93344b5b765d79c5b028
-timeCreated: 1434219864
+timeCreated: 1434429307
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -22,16 +22,16 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: DressColor1
       value:
-        scalar[0]: .882353008
-        scalar[1]: .94901967
-        scalar[2]: .956862807
+        scalar[0]: 1
+        scalar[1]: 0
+        scalar[2]: 0
         scalar[3]: 1
         texture: {instanceID: 0}
     - name: DressColor2
       value:
-        scalar[0]: .882353008
-        scalar[1]: .94901967
-        scalar[2]: .956862807
+        scalar[0]: 1
+        scalar[1]: 0
+        scalar[2]: 0
         scalar[3]: 1
         texture: {instanceID: 0}
     - name: DressFadeHigh
@@ -80,8 +80,8 @@ SubstanceImporter:
       serializedVersion: 5
       offset: {x: 0, y: 0}
       scale: {x: 1, y: 1}
-      generateMipmaps: 1
-      generateAllOutputs: 1
+      generateMipmaps: 0
+      generateAllOutputs: 0
       animationUpdateRate: 42
     materialProperties:
       serializedVersion: 2
@@ -109,7 +109,7 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _EmissionMap
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -117,6 +117,20 @@ SubstanceImporter:
         data:
           first:
             name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -131,20 +145,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _OcclusionMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -164,10 +164,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -176,8 +172,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -192,21 +196,17 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
       colors:
         data:
           first:
             name: _EmissionColor
-          second: {r: 0, g: 0, b: 0, a: 1}
+          second: {r: 0, g: 0, b: 0, a: 0}
         data:
           first:
             name: _Color
@@ -325,10 +325,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0399999991
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -337,8 +333,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0399999991
         data:
           first:
             name: _OcclusionStrength
@@ -353,15 +357,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
         data:
           first:
