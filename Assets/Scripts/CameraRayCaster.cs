@@ -14,7 +14,7 @@ public class CameraRayCaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		WorldMapMaster levelActiveScript = GameObject.Find ("Main Camera").GetComponent<WorldMapMaster> ();
+		WorldMapMaster levelActiveScript = GameObject.Find ("WorldMapMaster").GetComponent<WorldMapMaster> ();
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			if (Physics.Raycast (ray, out hit)) {
