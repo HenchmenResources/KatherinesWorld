@@ -2,6 +2,13 @@
 using System.Collections;
 
 public class PowerUps : MonoBehaviour {
+	//Instansiate Power Manager
+	private static PowerUps instance = null;
+	public static PowerUps Instance {
+		get { return instance; }
+	}
+
+
 	public GameObject PlayerChar;
 	//SETUP RENDERER
 	private Renderer rend;
@@ -59,6 +66,16 @@ public class PowerUps : MonoBehaviour {
 	public bool ShowMatProp = false;
 	public bool bOnScreenPowers = false;
 
+	void Awake() {
+		//Check if power manager has been instanced, if not do it, do it now
+		if (instance != null && instance != this) {
+			Destroy (this.gameObject);
+			return;
+		} else {
+			instance = this;
+		}
+		DontDestroyOnLoad (this.gameObject);
+	}
 
 	void Start() {
 		colorFadeLow = 0.0f;
