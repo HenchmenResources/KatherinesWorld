@@ -80,6 +80,9 @@ ModelImporter:
     100144: mixamorig_Spine
     100146: mixamorig_Spine1
     100148: mixamorig_Spine2
+    100150: DH_3D_Floor_Upper
+    100152: DH_3D_Floor_Upper_001
+    100154: DH_3D_Floor_Upper_002
     400000: Cube
     400002: DH_3D_5x5_SideWall
     400004: //RootNode
@@ -155,6 +158,9 @@ ModelImporter:
     400144: mixamorig_Spine
     400146: mixamorig_Spine1
     400148: mixamorig_Spine2
+    400150: DH_3D_Floor_Upper
+    400152: DH_3D_Floor_Upper_001
+    400154: DH_3D_Floor_Upper_002
     2300000: Cube
     2300002: DH_3D_5x5_SideWall
     2300004: DH_3D_5x5_SideWall_Door
@@ -171,6 +177,9 @@ ModelImporter:
     2300026: DH_3D_Door_Glass
     2300028: DH_3D_PushBlockSmall
     2300030: DH_3D_WallMoulding_End
+    2300032: DH_3D_Floor_Upper
+    2300034: DH_3D_Floor_Upper_001
+    2300036: DH_3D_Floor_Upper_002
     3300000: Cube
     3300002: DH_3D_5x5_SideWall
     3300004: DH_3D_5x5_SideWall_Door
@@ -187,6 +196,9 @@ ModelImporter:
     3300026: DH_3D_Door_Glass
     3300028: DH_3D_PushBlockSmall
     3300030: DH_3D_WallMoulding_End
+    3300032: DH_3D_Floor_Upper
+    3300034: DH_3D_Floor_Upper_001
+    3300036: DH_3D_Floor_Upper_002
     4300000: DH_3D_5x5_SideWall
     4300002: Cube
     4300004: DH_3D_Window_Hald_Round
@@ -203,6 +215,9 @@ ModelImporter:
     4300026: DH_3D_WallMoulding_End
     4300028: DH_3D_6x6x6_Filler_Block
     4300030: DH_3D_Door_Glass
+    4300032: DH_3D_Floor_Upper_002
+    4300034: DH_3D_Floor_Upper_001
+    4300036: DH_3D_Floor_Upper
     7400000: Default Take
     7400002: Armature_mixamo_com_Layer0
     9500000: //RootNode
