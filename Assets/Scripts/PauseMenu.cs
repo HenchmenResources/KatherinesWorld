@@ -34,6 +34,9 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	void ThePauseMenu (int windowID) {
+		if(GUILayout.Button("Back to World Map")){
+			Application.LoadLevel("worldMap");
+		}
 		if(GUILayout.Button("Main Menu")){
 			Application.LoadLevel("menu");
 		}

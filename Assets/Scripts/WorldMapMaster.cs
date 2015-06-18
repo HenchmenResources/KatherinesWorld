@@ -3,6 +3,42 @@ using System.Collections;
 
 public class WorldMapMaster : MonoBehaviour {
 	private Vector3 mouseLocation;
+	//LevelActiveCheck will need to be replaced with code that checks the master level unlocked list.
+	private bool LevelActiveCheck = true;
+	public GameObject lightManager;
+	private string nextLevel;
+
+	//Track Which maps have been Completed
+	public bool bActiveLevel1 = true;
+	public bool bActiveLevel2 = false;
+	public bool bActiveLevel3 = false;
+	public bool bActiveLevel4 = false;
+	public bool bActiveLevel5 = false;
+	public bool bActiveLevel6 = false;
+	public bool bActiveLevel7 = false;
+	public bool bActiveLevel8 = false;
+	public bool bActiveLevel9 = false;
+	public bool bActiveLevel10 = false;
+	public bool bActiveLevel11 = false;
+	public bool bActiveLevel12 = false;
+
+	//Setup Instancing
+	private static WorldMapMaster instance = null;
+	public static WorldMapMaster Instance {
+		get { return instance; }
+	}
+
+	void Awake() {
+		if (instance != null && instance != this) {
+			Destroy (this.gameObject);
+			return;
+		} else {
+			instance = this;
+		}
+		DontDestroyOnLoad (this.gameObject);
+	}
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -11,30 +47,9 @@ public class WorldMapMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//if (Input.GetMouseButtonDown(0)) {
-		//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		//Physics.Raycast(Camera.main.transform.position, Input.mousePosition, 100);
-		//GameObject hitObject = RaycastHit.transform.parent;
-		//Debug.Log (hitObject.name);
-		//}
-		if (Input.GetMouseButtonDown (0)) {
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit)){
-				if (hit.rigidbody != null){
-					Debug.Log (hit.collider.gameObject.name);
-					Application.LoadLevel(hit.collider.gameObject.name);
-				}
-			}
-			
-			
-		}
+
+
 	}
+
+
 }
-
-
-//Vector3 fwd = transform.TransformDirection (Vector3.forward);
-//if (Physics.Raycast (Transform.position, fwd, 10)) {
-//	GameObject hitObject = RaycastHit.transform.gameObject;
-//	Debug.Log (hitObject.name);
-//}

@@ -2,6 +2,13 @@
 using System.Collections;
 
 public class PowerUps : MonoBehaviour {
+	//Instansiate Power Manager
+	private static PowerUps instance = null;
+	public static PowerUps Instance {
+		get { return instance; }
+	}
+
+
 	public GameObject PlayerChar;
 	//SETUP RENDERER
 	private Renderer rend;
@@ -44,8 +51,8 @@ public class PowerUps : MonoBehaviour {
 	public float maxTimeLight = 10F;
 	public float maxTimeShield = 10F;
 	//Amount of mana each power should use
-	public float manaStrength = 15F;
-	public float manaFreeze = 15F;
+	public float manaStrength = 30F;
+	public float manaFreeze = 30F;
 	public float manaLight = 0.01F;
 	public float manaShield = 0.01F;
 	//SETUP Color arrays
@@ -59,6 +66,16 @@ public class PowerUps : MonoBehaviour {
 	public bool ShowMatProp = false;
 	public bool bOnScreenPowers = false;
 
+	void Awake() {
+		//Check if power manager has been instanced, if not do it, do it now
+		if (instance != null && instance != this) {
+			Destroy (this.gameObject);
+			return;
+		} else {
+			instance = this;
+		}
+		DontDestroyOnLoad (this.gameObject);
+	}
 
 	void Start() {
 		colorFadeLow = 0.0f;
@@ -126,12 +143,12 @@ public class PowerUps : MonoBehaviour {
 		}
 		
 		//Manage Timer for Strength Power UP
-		if (enabledStrength && (maxTimeStrength + timerStrength) < Time.time) {
+		if (enabledStrength && ((maxTimeStrength + timerStrength) < Time.time)) {
 			disablePower("Strength");
 		}
 
 		//Manage Timer for Freeze Power UP
-		if (enabledFreeze && (maxTimeFreeze + timerFreeze) < Time.time) {
+		if (enabledFreeze && ((maxTimeFreeze + timerFreeze) < Time.time)) {
 			disablePower("Freeze");
 		}
 
@@ -180,9 +197,16 @@ public class PowerUps : MonoBehaviour {
 			}
 		}
 
-		if (enabledFreeze) {
+        if (manaPool >= maxManaPool)
+        {
+            manaPool = maxManaPool;
+        }
 
-		}
+        // mana regeneration
+        if (manaPool < maxManaPool)
+        {
+            manaPool = manaPool + Time.deltaTime;
+        }
 		
 	}
 
@@ -223,7 +247,10 @@ public class PowerUps : MonoBehaviour {
 		}
 		
 		//Mana Bar
-		GUI.Box (new Rect (25, 25, manaPool * 2F, 20), "Mana " + Mathf.Round((manaPool/maxManaPool)*100F).ToString() + "%");
+		if (powersEnabled) {
+			//ONLY SHOW MANA BAR IF POWERS ARE ENABLED
+			GUI.Box (new Rect (25, 25, manaPool * 2F, 20), "Mana " + Mathf.Round ((manaPool / maxManaPool) * 100F).ToString () + "%");
+		}
 	}
 
 	void ProceduralPropertiesGUI (int windowId) {
@@ -263,6 +290,7 @@ public class PowerUps : MonoBehaviour {
 			timerStrength = Time.time;
 			enabledStrength = true;
 			particleStrength.GetComponent<ParticleSystem>().Play();
+            PlayerChar.gameObject.GetComponent<Player>().jumpSpeed = 12.0f;
 			break;
 		case "Freeze":
 			timerFreeze = Time.time;
@@ -302,5 +330,4 @@ public class PowerUps : MonoBehaviour {
 			break;
 		}
 	}
-
 }
