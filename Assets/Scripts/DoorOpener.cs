@@ -3,6 +3,10 @@ using System.Collections;
 
 public class DoorOpener : MonoBehaviour {
 	public GameObject Door;
+	public bool isLocked = false;
+	public bool hasKey = false;
+	public string keyname;
+
 	private Animator anim;
 	// Use this for initialization
 	void Start () {
@@ -17,14 +21,13 @@ public class DoorOpener : MonoBehaviour {
 
 	void OnTriggerEnter () {
 		//StartCoroutine ( TriggerAnimatorBool());
-		anim.SetBool ("doOpen", true);
-	}
-
-	private IEnumerator TriggerAnimatorBool (){
-		//anim.SetBool ("isClosed", false);
-		anim.SetBool("doOpen", true);
-		yield return null;
-		anim.SetBool("doOpen", false);
-		anim.SetBool("isOpen", true);
+		if (!isLocked) {
+			anim.SetBool ("doOpen", true);
+			Door.GetComponent<BoxCollider>().enabled = false;
+		}
+		if (isLocked && hasKey) {
+			anim.SetBool ("doOpen", true);
+			Door.GetComponent<BoxCollider>().enabled = false;
+		}
 	}
 }

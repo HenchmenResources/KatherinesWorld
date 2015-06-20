@@ -117,8 +117,11 @@ public class Player : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump")){
                 vertSpeed = jumpSpeed;
+				anim.SetBool("Jump", true);
+			}
+
         }
         moveDirection = new Vector3(0, 0, Input.GetAxis("Horizontal"));
         moveDirection = transform.TransformDirection(moveDirection);
@@ -126,6 +129,7 @@ public class Player : MonoBehaviour
         moveDirection.x *= speed;
         vertSpeed -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+		anim.SetFloat ("Speed", speed);
     }
 
 
