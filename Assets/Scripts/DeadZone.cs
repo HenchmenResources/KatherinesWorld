@@ -3,6 +3,9 @@ using System.Collections;
 
 public class DeadZone : MonoBehaviour {
 	private Animator anim;
+	bool playerDead = false;
+	public Texture deathMessage;
+
 
 	void Start () {
 
@@ -13,7 +16,21 @@ public class DeadZone : MonoBehaviour {
 		if (other.tag == "Player") {
 			anim.SetBool ("Dead", true);
 			anim.SetBool ("isDead", true);
-			Debug.Log ("You Died");
+			playerDead = true;
+			StartCoroutine ( DeathReset());
 		}
+	}
+
+	void OnGUI () {
+		if (playerDead) {
+			GUI.DrawTexture(new Rect(Screen.width / 2 - 256, Screen.height / 3, 512, 128), deathMessage, ScaleMode.ScaleToFit);
+			//GUI.DrawTexture(new Rect(10, 10, 512, 128), deathMessage, ScaleMode.ScaleToFit);
+		}
+	}
+
+	private IEnumerator DeathReset (){
+		Debug.Log ("Death Timer Go!");
+		yield return new WaitForSeconds(5f);
+		Application.LoadLevel(Application.loadedLevelName);
 	}
 }
