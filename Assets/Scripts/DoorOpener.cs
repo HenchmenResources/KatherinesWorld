@@ -23,11 +23,16 @@ public class DoorOpener : MonoBehaviour {
 		//StartCoroutine ( TriggerAnimatorBool());
 		if (!isLocked) {
 			anim.SetBool ("doOpen", true);
-			Door.GetComponent<BoxCollider>().enabled = false;
+			//StartCoroutine(removeCollider());
 		}
 		if (isLocked && hasKey) {
 			anim.SetBool ("doOpen", true);
-			Door.GetComponent<BoxCollider>().enabled = false;
+			//StartCoroutine(removeCollider());
 		}
+	}
+
+	private IEnumerator removeCollider (){
+		yield return new WaitForSeconds(1f);
+		Door.GetComponent<BoxCollider>().enabled = false;
 	}
 }
