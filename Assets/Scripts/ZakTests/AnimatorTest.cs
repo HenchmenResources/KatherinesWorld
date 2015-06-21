@@ -15,6 +15,7 @@ public class AnimatorTest : MonoBehaviour {
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
+	Vector3 wallCast;
 
 	private Animator anim;
 	// Use this for initialization
@@ -43,7 +44,11 @@ public class AnimatorTest : MonoBehaviour {
 
 		if (grounded) {
 			if (!grabbing) {
-				m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+				if (IsWalled()){
+					m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+				}else{
+					m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+				}
 			}else{
 				m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
 			}
@@ -102,15 +107,21 @@ public class AnimatorTest : MonoBehaviour {
 	}
 
 	bool IsGrounded () {
+		RaycastHit hit;
 		return Physics.Raycast (groundCheck.position, -Vector3.up, groundRadius, whatIsGround);
+		//return Physics.SphereCast (groundCheck.position, groundRadius, -Vector3.up, out hit, 1f);
 	}
 
 	bool IsWalled () {
 		Debug.Log ("Wall Check");
+		wallCast = gameObject.transform.position + new Vector3(0f, 0.8f, 0f);
+		RaycastHit hit;
 		if (facingRight) {
-			return Physics.Raycast (gameObject.transform.position, Vector3.right, 0.5f);
+			//return Physics.Raycast (gameObject.transform.position, Vector3.right, 0.5f);
+			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.right, out hit, 0.1f);
 		}else{
-			return Physics.Raycast (gameObject.transform.position, Vector3.left, 0.5f);
+			//return Physics.Raycast (gameObject.transform.position, Vector3.left, 0.5f);
+			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.left, out hit, 0.1f);
 		}
 	}
 }
