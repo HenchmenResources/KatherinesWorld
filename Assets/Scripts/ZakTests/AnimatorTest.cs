@@ -17,6 +17,7 @@ public class AnimatorTest : MonoBehaviour {
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
+	public LayerMask MovingObjects;
 	Vector3 wallCast;
 
 	private Animator anim;
@@ -47,14 +48,19 @@ public class AnimatorTest : MonoBehaviour {
 		anim.SetFloat ("dragSpeed", dragDirect);
 
 		if (grounded) {
-			if (!grabbing) {
-				if (IsWalled()){
-					m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
-				}else{
-					m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
-				}
+			if (OnMover ()) {
+				//DO THIS IF THE PLAYER IS ON A MOVER
+				Debug.Log ("On Mover. . . Bitch!");
 			}else{
-				m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
+				if (!grabbing) {
+					if (IsWalled()){
+						m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+					}else{
+						m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+					}
+				}else{
+					m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
+				}
 			}
 		} else {
 			// Check if we're hitting a wall
@@ -114,6 +120,11 @@ public class AnimatorTest : MonoBehaviour {
 		RaycastHit hit;
 		return Physics.Raycast (groundCheck.position, -Vector3.up, groundRadius, whatIsGround);
 		//return Physics.SphereCast (groundCheck.position, groundRadius, -Vector3.up, out hit, 1f);
+	}
+
+	bool OnMover () {
+		RaycastHit hit;
+		return Physics.Raycast (groundCheck.position, -Vector3.up, groundRadius, MovingObjects);
 	}
 
 	bool IsWalled () {
