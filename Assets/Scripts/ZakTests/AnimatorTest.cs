@@ -5,11 +5,13 @@ public class AnimatorTest : MonoBehaviour {
 	public float airSpeedMultiplier = 0.5f;
 	public float maxSpeed = 5.9f;
 	public float jumpForce = 600f;
+	public float dragMultiplier = 0.001f;
 	bool facingRight = true;
 	public bool grabbing = false;
 	float dragSpeed = 0.5f;
 	Rigidbody m_Rigidbody;
 	Quaternion m_rotation = Quaternion.identity;
+	float dragDirect;
 
 	bool grounded = false;
 	public Transform groundCheck;
@@ -36,11 +38,13 @@ public class AnimatorTest : MonoBehaviour {
 		anim.SetFloat ("vSpeed", m_Rigidbody.velocity.y);
 		
 		if (facingRight) {
-			dragSpeed = move * 0.3f;
+			dragSpeed = move * maxSpeed * dragMultiplier;
+			dragDirect = move * maxSpeed * dragMultiplier;
 		} else {
-			dragSpeed = move * 0.3f * -1f;
+			dragSpeed = move * maxSpeed * dragMultiplier;
+			dragDirect = move * maxSpeed * dragMultiplier * -1f;
 		}
-		anim.SetFloat ("dragSpeed", dragSpeed);
+		anim.SetFloat ("dragSpeed", dragDirect);
 
 		if (grounded) {
 			if (!grabbing) {
