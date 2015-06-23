@@ -13,7 +13,7 @@ public class DeadZone : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		anim = other.GetComponent<Animator> ();
-		if (other.tag == "Player") {
+		if (other.gameObject.tag == "Player") {
 			anim.SetBool ("Dead", true);
 			anim.SetBool ("isDead", true);
 			playerDead = true;

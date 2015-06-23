@@ -133,10 +133,10 @@ public class AnimatorTest : MonoBehaviour {
 		RaycastHit hit;
 		if (facingRight) {
 			//return Physics.Raycast (gameObject.transform.position, Vector3.right, 0.5f);
-			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.right, out hit, 0.1f);
+			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.right, out hit, 0.1f, whatIsGround);
 		}else{
 			//return Physics.Raycast (gameObject.transform.position, Vector3.left, 0.5f);
-			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.left, out hit, 0.1f);
+			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.left, out hit, 0.1f, whatIsGround);
 		}
 	}
 }
