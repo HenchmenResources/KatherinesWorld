@@ -63,8 +63,8 @@ public class AnimatorTest : MonoBehaviour {
 				}
 			}
 		} else {
-			// Check if we're hitting a wall
-			if(IsWalled())
+			NoWallStick WallCheck = GameObject.Find("Teflon").GetComponent<NoWallStick>();
+			if(WallCheck.hittingWall)
 			{
 				Debug.Log ("You're Walled");
 				// If so, stop the movement
