@@ -85,6 +85,7 @@ ModelImporter:
     100154: DH_3D_Floor_Upper_002
     100156: DH_3D_Balcony
     100158: DH_3D_Balcony_High
+    100160: DH_3D_SideWall_Solid
     400000: Cube
     400002: DH_3D_5x5_SideWall
     400004: //RootNode
@@ -165,6 +166,7 @@ ModelImporter:
     400154: DH_3D_Floor_Upper_002
     400156: DH_3D_Balcony
     400158: DH_3D_Balcony_High
+    400160: DH_3D_SideWall_Solid
     2300000: Cube
     2300002: DH_3D_5x5_SideWall
     2300004: DH_3D_5x5_SideWall_Door
@@ -186,6 +188,7 @@ ModelImporter:
     2300036: DH_3D_Floor_Upper_002
     2300038: DH_3D_Balcony
     2300040: DH_3D_Balcony_High
+    2300042: DH_3D_SideWall_Solid
     3300000: Cube
     3300002: DH_3D_5x5_SideWall
     3300004: DH_3D_5x5_SideWall_Door
@@ -207,6 +210,7 @@ ModelImporter:
     3300036: DH_3D_Floor_Upper_002
     3300038: DH_3D_Balcony
     3300040: DH_3D_Balcony_High
+    3300042: DH_3D_SideWall_Solid
     4300000: DH_3D_5x5_SideWall
     4300002: Cube
     4300004: DH_3D_Window_Hald_Round
@@ -228,6 +232,7 @@ ModelImporter:
     4300036: DH_3D_Floor_Upper
     4300038: DH_3D_Balcony_High
     4300040: DH_3D_Balcony
+    4300042: DH_3D_SideWall_Solid
     7400000: Default Take
     7400002: Armature_mixamo_com_Layer0
     9500000: //RootNode
