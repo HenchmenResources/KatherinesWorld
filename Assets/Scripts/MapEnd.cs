@@ -4,6 +4,7 @@ using System.Collections;
 public class MapEnd : MonoBehaviour {
 
 	public GameObject SuccessNotice;
+	public Texture SuccessTexture;
 	public float SuccessTime = 3f;
 	public int nextMap;
 	private bool bMapDone = false;
@@ -17,7 +18,7 @@ public class MapEnd : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (bMapDone) {
-			SuccessNotice.SetActive (true);
+			//SuccessNotice.SetActive (true);
 			if (Input.anyKey && (endTimer+5 < Time.time)) {
 				//Application.LoadLevel(nextMap);
 				Application.LoadLevel ("worldMap");
@@ -71,4 +72,10 @@ public class MapEnd : MonoBehaviour {
 		 endTimer = Time.time;
 		}
 	}	
+
+	void OnGUI () {
+		if (bMapDone) {
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 256, Screen.height / 3, 512, 128), SuccessTexture, ScaleMode.ScaleToFit);
+		}
+	}
 }
