@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 994f7dad3e2ec964082fa9240dad9e3d
-timeCreated: 1434827798
+timeCreated: 1435111027
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -201,7 +201,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: DH_Mat_6x6_Upper_Floor
     prototypeName: DH_Mat_6x6_Upper_Floor
@@ -391,7 +391,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Dollhouse
     prototypeName: Dollhouse
@@ -588,7 +588,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Wall_001
     prototypeName: Wall_001
@@ -785,7 +785,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 4
   - serializedVersion: 16
     name: Wall_Moulding
     prototypeName: Wall_Moulding
@@ -982,7 +982,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 1
+      loadingBehavior: 5
   deletedPrototypes: []
   userData: 
   assetBundleName: 

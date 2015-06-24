@@ -51,7 +51,8 @@ public class AnimatorTest : MonoBehaviour {
 			if (OnMover ()) {
 				//DO THIS IF THE PLAYER IS ON A MOVER
 				Debug.Log ("On Mover. . . Bitch!");
-			}else{
+			} //RMOVE THIS AND UNCOMMENT ON MOVE ELSE
+			//}else{  //END ON MOVE START ON MOVER ELSE
 				if (!grabbing) {
 					if (IsWalled()){
 						m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
@@ -61,7 +62,7 @@ public class AnimatorTest : MonoBehaviour {
 				}else{
 					m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
 				}
-			}
+			//}   //END ON MOVER ELSE
 		} else {
 			NoWallStick WallCheck = GameObject.Find("Teflon").GetComponent<NoWallStick>();
 			if(WallCheck.hittingWall)

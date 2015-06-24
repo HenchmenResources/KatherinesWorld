@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 54d4e200835e93344b5b765d79c5b028
-timeCreated: 1434830528
+timeCreated: 1435098202
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -22,9 +22,9 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: DressColor1
       value:
-        scalar[0]: 1
-        scalar[1]: 0
-        scalar[2]: 0
+        scalar[0]: .0149221597
+        scalar[1]: .725113332
+        scalar[2]: 1
         scalar[3]: 1
         texture: {instanceID: 0}
     - name: DressColor2
