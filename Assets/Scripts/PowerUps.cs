@@ -88,7 +88,9 @@ public class PowerUps : MonoBehaviour {
 		substance.SetProceduralFloat("DressFadeMid", colorFadeMid);
 		substance.SetProceduralFloat("DressFadeLow", colorFadeLow);
 		substance.RebuildTextures();
+		PlayerChar = GameObject.Find ("Katherine_Low_Color");
 		particleStrength = PlayerChar.transform.Find("Flames").gameObject;
+
 
 	}
 

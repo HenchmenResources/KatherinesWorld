@@ -19,6 +19,8 @@ public class AnimatorTest : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public LayerMask MovingObjects;
 	Vector3 wallCast;
+	GameObject hitName;
+	Transform onMoverObj;
 
 	private Animator anim;
 	// Use this for initialization
@@ -50,9 +52,11 @@ public class AnimatorTest : MonoBehaviour {
 		if (grounded) {
 			if (OnMover ()) {
 				//DO THIS IF THE PLAYER IS ON A MOVER
-				Debug.Log ("On Mover. . . Bitch!");
-			} //RMOVE THIS AND UNCOMMENT ON MOVE ELSE
-			//}else{  //END ON MOVE START ON MOVER ELSE
+				Debug.Log ("On Mover "+hitName+". . . Bitch!");
+				OnMoverMove ();
+			//} //RMOVE THIS AND UNCOMMENT ON MOVE ELSE
+			}else{  //END ON MOVE START ON MOVER ELSE
+				gameObject.transform.parent = null;
 				if (!grabbing) {
 					if (IsWalled()){
 						m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
@@ -62,7 +66,7 @@ public class AnimatorTest : MonoBehaviour {
 				}else{
 					m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
 				}
-			//}   //END ON MOVER ELSE
+			}   //END ON MOVER ELSE
 		} else {
 			NoWallStick WallCheck = GameObject.Find("Teflon").GetComponent<NoWallStick>();
 			if(WallCheck.hittingWall)
@@ -86,6 +90,7 @@ public class AnimatorTest : MonoBehaviour {
 
 
 		if (grounded && Input.GetButtonDown ("Jump")) {
+			gameObject.transform.parent = null;
 			anim.SetBool ("Grounded", false);
 			PowerUps powerupScript = GameObject.Find ("PowerManager").GetComponent<PowerUps> ();
 			if (powerupScript.enabledStrength){
@@ -119,8 +124,7 @@ public class AnimatorTest : MonoBehaviour {
 
 	bool IsGrounded () {
 		RaycastHit hit;
-		return Physics.Raycast (groundCheck.position, -Vector3.up, groundRadius, whatIsGround);
-		//return Physics.SphereCast (groundCheck.position, groundRadius, -Vector3.up, out hit, 1f);
+		return Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround);
 	}
 
 	bool OnMover () {
@@ -139,5 +143,12 @@ public class AnimatorTest : MonoBehaviour {
 			//return Physics.Raycast (gameObject.transform.position, Vector3.left, 0.5f);
 			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.left, out hit, 0.1f, whatIsGround);
 		}
+	}
+
+	void OnMoverMove () {
+		RaycastHit hit;
+		Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround);
+		hitName = hit.collider.gameObject;
+		gameObject.transform.parent = hitName.transform;
 	}
 }
