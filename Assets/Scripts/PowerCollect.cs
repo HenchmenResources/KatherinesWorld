@@ -6,10 +6,8 @@ public class PowerCollect : MonoBehaviour {
 	//Setup available Powerups
 	public enum bSetPower : int {Strength, Freeze, Light, Shield};
 	public bSetPower SetPower;
-	//private int OldPower = SetPower;
 	public GameObject PowerManager;
 	private Renderer rend;
-	public GameObject bThisObject;
 
 
 	//Setup Texture set for Powerups

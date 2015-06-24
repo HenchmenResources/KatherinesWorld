@@ -20,7 +20,7 @@ public class AnimatorTest : MonoBehaviour {
 	public LayerMask MovingObjects;
 	Vector3 wallCast;
 	GameObject hitName;
-	Transform onMoverObj;
+	bool wallHitLeft = false;
 
 	private Animator anim;
 	// Use this for initialization
@@ -29,7 +29,6 @@ public class AnimatorTest : MonoBehaviour {
 		m_Rigidbody = GetComponent<Rigidbody>();
 		//Lock the player to the X and Y axis and allow them to only turn to the left and right
 		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
-
 	}
 	
 	// Update is called once per frame
@@ -59,7 +58,19 @@ public class AnimatorTest : MonoBehaviour {
 				gameObject.transform.parent = null;
 				if (!grabbing) {
 					if (IsWalled()){
-						m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+						if (wallHitLeft) {
+							if (move < 0) {
+								m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
+							}else{
+								m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+							}
+						}else{
+							if (move > 0) {
+								m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
+							}else{
+								m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+							}
+						}
 					}else{
 						m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
 					}
@@ -68,12 +79,24 @@ public class AnimatorTest : MonoBehaviour {
 				}
 			}   //END ON MOVER ELSE
 		} else {
-			NoWallStick WallCheck = GameObject.Find("Teflon").GetComponent<NoWallStick>();
-			if(WallCheck.hittingWall)
+
+			if(IsWalled ())
 			{
 				Debug.Log ("You're Walled");
-				// If so, stop the movement
-				m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
+				// If so, stop the movement IN SAME DIRECTION
+				if (wallHitLeft) {
+					if (move < 0) {
+						m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
+					}else{
+						m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
+					}
+				}else{
+					if (move > 0) {
+						m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
+					}else{
+						m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
+					}
+				}
 			}else{
 				//ALTER SPEED FOR AIR CONTROL IN HERE
 				m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
@@ -132,23 +155,18 @@ public class AnimatorTest : MonoBehaviour {
 		return Physics.Raycast (groundCheck.position, -Vector3.up, groundRadius, MovingObjects);
 	}
 
-	bool IsWalled () {
-		Debug.Log ("Wall Check");
-		wallCast = gameObject.transform.position + new Vector3(0f, 0.8f, 0f);
-		RaycastHit hit;
-		if (facingRight) {
-			//return Physics.Raycast (gameObject.transform.position, Vector3.right, 0.5f);
-			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.right, out hit, 0.1f, whatIsGround);
-		}else{
-			//return Physics.Raycast (gameObject.transform.position, Vector3.left, 0.5f);
-			return Physics.SphereCast (wallCast, gameObject.GetComponent<Collider>().transform.localScale.y / 2f, Vector3.left, out hit, 0.1f, whatIsGround);
-		}
-	}
-
 	void OnMoverMove () {
 		RaycastHit hit;
-		Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround);
+		Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, MovingObjects);
 		hitName = hit.collider.gameObject;
+		float move = Input.GetAxis ("Horizontal");
 		gameObject.transform.parent = hitName.transform;
+	}
+	
+	bool IsWalled () {
+		Debug.Log ("Wall Check");
+		NoWallStick WallCheck = GameObject.Find("Teflon").GetComponent<NoWallStick>();
+		wallHitLeft = !facingRight;
+		return WallCheck.hittingWall;
 	}
 }

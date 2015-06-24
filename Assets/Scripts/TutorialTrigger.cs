@@ -14,6 +14,7 @@ public class TutorialTrigger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bTutorialObject.SetActive (false);
+		bTutorialSeen = false;
 	}
 	
 	// Update is called once per frame
@@ -21,14 +22,15 @@ public class TutorialTrigger : MonoBehaviour {
 		if (bTutorialShowing && bTimer > Time.time) {
 			bTutorialObject.SetActive (true);
 		}else if (bTutorialShowing && bTimer < Time.time) {
+			Debug.Log ("Tutorial has been shown");
 			bTutorialObject.SetActive (false);
 			bTutorialSeen = true;
 			bTutorialShowing = false;
 		}
 	}
 
-	void OnTriggerEnter () {
-		if (!bTutorialSeen) {
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Player" && !bTutorialSeen) {
 			bTutorialShowing = true;
 			bTimer = Time.time + bTutorialShowTime;
 			bTutorialObject.GetComponent<Renderer>().material.SetTexture("_MainTex", bTutorialText);
