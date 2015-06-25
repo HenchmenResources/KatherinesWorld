@@ -5,7 +5,7 @@ public class AnimatorTest : MonoBehaviour {
 	public float airSpeedMultiplier = 0.5f;
 	public float maxSpeed = 5.9f;
 	public float jumpForce = 600f;
-	public float dragMultiplier = 0.001f;
+	public float dragMultiplier = 0.1f;
 	bool facingRight = true;
 	public bool grabbing = false;
 	float dragSpeed = 0.5f;
@@ -47,14 +47,11 @@ public class AnimatorTest : MonoBehaviour {
 			dragDirect = move * maxSpeed * dragMultiplier * -1f;
 		}
 		anim.SetFloat ("dragSpeed", dragDirect);
-
 		if (grounded) {
 			if (OnMover ()) {
 				//DO THIS IF THE PLAYER IS ON A MOVER
-				Debug.Log ("On Mover "+hitName+". . . Bitch!");
 				OnMoverMove ();
-			//} //RMOVE THIS AND UNCOMMENT ON MOVE ELSE
-			}else{  //END ON MOVE START ON MOVER ELSE
+			}else{
 				gameObject.transform.parent = null;
 				if (!grabbing) {
 					if (IsWalled()){
@@ -82,7 +79,6 @@ public class AnimatorTest : MonoBehaviour {
 
 			if(IsWalled ())
 			{
-				Debug.Log ("You're Walled");
 				// If so, stop the movement IN SAME DIRECTION
 				if (wallHitLeft) {
 					if (move < 0) {
@@ -146,8 +142,9 @@ public class AnimatorTest : MonoBehaviour {
 	}
 
 	bool IsGrounded () {
-		RaycastHit hit;
-		return Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround);
+		GroundedTrigger GroundCheck = transform.FindChild("GroundCheck").gameObject.GetComponent<GroundedTrigger>();
+		return GroundCheck.bGrounded;
+
 	}
 
 	bool OnMover () {
@@ -164,7 +161,6 @@ public class AnimatorTest : MonoBehaviour {
 	}
 	
 	bool IsWalled () {
-		Debug.Log ("Wall Check");
 		NoWallStick WallCheck = GameObject.Find("Teflon").GetComponent<NoWallStick>();
 		wallHitLeft = !facingRight;
 		return WallCheck.hittingWall;
