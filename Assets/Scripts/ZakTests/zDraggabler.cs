@@ -6,6 +6,8 @@ public class zDraggabler : MonoBehaviour {
 	bool bInGrabbingZone = false;
 	Rigidbody m_rigidbody;
 	GameObject ThisParent;
+	public bool bIsLarge = false;
+
 
 	// Use this for initialization
 	void Start () {

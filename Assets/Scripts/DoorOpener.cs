@@ -19,20 +19,14 @@ public class DoorOpener : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter () {
-		//StartCoroutine ( TriggerAnimatorBool());
-		if (!isLocked) {
-			anim.SetBool ("doOpen", true);
-			//StartCoroutine(removeCollider());
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Player") {
+			if (!isLocked) {
+				anim.SetBool ("doOpen", true);
+			}
+			if (isLocked && hasKey) {
+				anim.SetBool ("doOpen", true);
+			}
 		}
-		if (isLocked && hasKey) {
-			anim.SetBool ("doOpen", true);
-			//StartCoroutine(removeCollider());
-		}
-	}
-
-	private IEnumerator removeCollider (){
-		yield return new WaitForSeconds(1f);
-		Door.GetComponent<BoxCollider>().enabled = false;
 	}
 }
