@@ -25,13 +25,16 @@ public class zDraggabler : MonoBehaviour {
 			if (GroundCheck.bGrounded) {
 				//IF THE PLAYER IS IN THE DRAG ZONE AND IS GRABBING MAKE THE PLAYER OBJECT THE PARENT TO THE BOX
 				m_rigidbody.isKinematic = true;
+				m_rigidbody.mass = 1.0f;
 				ThisParent.transform.parent = GameObject.Find ("Katherine").transform;
 				Debug.Log ("Box is grounded");
 			}else{
 				m_rigidbody.isKinematic = false;
+				m_rigidbody.mass = 100.0f;
 				ThisParent.transform.parent = null;
 			}
 		} else {
+			m_rigidbody.mass = 100.0f;
 			m_rigidbody.isKinematic = false;
 			ThisParent.transform.parent = null;
 		}

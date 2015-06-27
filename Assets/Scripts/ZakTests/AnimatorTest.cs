@@ -29,6 +29,7 @@ public class AnimatorTest : MonoBehaviour {
 		m_Rigidbody = GetComponent<Rigidbody>();
 		//Lock the player to the X and Y axis and allow them to only turn to the left and right
 		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+		//groundCheck = gameObject.transform.FindChild ("GroundCheck").transform;
 	}
 	
 	// Update is called once per frame
@@ -49,6 +50,7 @@ public class AnimatorTest : MonoBehaviour {
 		anim.SetFloat ("dragSpeed", dragDirect);
 		if (grounded) {
 			if (OnMover ()) {
+				Debug.Log ("On Mover");
 				//DO THIS IF THE PLAYER IS ON A MOVER
 				OnMoverMove ();
 			}else{
@@ -153,6 +155,7 @@ public class AnimatorTest : MonoBehaviour {
 	}
 
 	void OnMoverMove () {
+		Debug.Log ("Player to Mover");
 		RaycastHit hit;
 		Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, MovingObjects);
 		hitName = hit.collider.gameObject;
