@@ -28,8 +28,10 @@ public class AnimatorTest : MonoBehaviour {
 		anim = gameObject.GetComponent<Animator> ();
 		m_Rigidbody = GetComponent<Rigidbody>();
 		//Lock the player to the X and Y axis and allow them to only turn to the left and right
-		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
 		//groundCheck = gameObject.transform.FindChild ("GroundCheck").transform;
+		//anim["pushPull"].speed = 2.0f;
+		//anim.speed = 2.0f;
 	}
 	
 	// Update is called once per frame
@@ -144,8 +146,18 @@ public class AnimatorTest : MonoBehaviour {
 	}
 
 	bool IsGrounded () {
+
+		//USE GROUNDED TRIGGER BOX TO DETERMINE GROUNDING
 		GroundedTrigger GroundCheck = transform.FindChild("GroundCheck").gameObject.GetComponent<GroundedTrigger>();
-		return GroundCheck.bGrounded;
+		//return GroundCheck.bGrounded;
+
+		//UNCOMMENT TO USE RAY CASTING TO CHECK IF PLAYER IS GROUNDED
+		RaycastHit hit;
+		if (GroundCheck.bGrounded || Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround)){
+			return true;
+		}else{
+			return false;
+		}
 
 	}
 
