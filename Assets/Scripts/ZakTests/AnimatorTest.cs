@@ -12,8 +12,7 @@ public class AnimatorTest : MonoBehaviour {
 	Rigidbody m_Rigidbody;
 	Quaternion m_rotation = Quaternion.identity;
 	float dragDirect;
-
-	bool grounded = false;
+	
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
@@ -21,6 +20,7 @@ public class AnimatorTest : MonoBehaviour {
 	Vector3 wallCast;
 	GameObject hitName;
 	bool wallHitLeft = false;
+	[HideInInspector] public bool playerDead = false;
 
 	private Animator anim;
 	// Use this for initialization
@@ -29,7 +29,6 @@ public class AnimatorTest : MonoBehaviour {
 		m_Rigidbody = GetComponent<Rigidbody>();
 		//Lock the player to the X and Y axis and allow them to only turn to the left and right
 		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
-		//groundCheck = gameObject.transform.FindChild ("GroundCheck").transform;
 		//anim["pushPull"].speed = 2.0f;
 		//anim.speed = 2.0f;
 	}
@@ -38,8 +37,7 @@ public class AnimatorTest : MonoBehaviour {
 	void FixedUpdate () {
 		float move = Input.GetAxis ("Horizontal");
 		anim.SetFloat ("Speed", Mathf.Abs (move));
-		grounded = IsGrounded ();
-		anim.SetBool ("Grounded", grounded);
+		anim.SetBool ("Grounded", IsGrounded ());
 		anim.SetFloat ("vSpeed", m_Rigidbody.velocity.y);
 		
 		if (facingRight) {
@@ -50,69 +48,69 @@ public class AnimatorTest : MonoBehaviour {
 			dragDirect = move * maxSpeed * dragMultiplier * -1f;
 		}
 		anim.SetFloat ("dragSpeed", dragDirect);
-		if (grounded) {
-			if (OnMover ()) {
-				Debug.Log ("On Mover");
-				//DO THIS IF THE PLAYER IS ON A MOVER
-				OnMoverMove ();
-			}else{
-				gameObject.transform.parent = null;
-				if (!grabbing) {
-					if (IsWalled()){
-						if (wallHitLeft) {
-							if (move < 0) {
-								m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
-							}else{
-								m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+		if (!playerDead) {
+			if (IsGrounded ()) {
+				if (OnMover ()) {
+					//DO THIS IF THE PLAYER IS ON A MOVER
+					OnMoverMove ();
+				} else {
+					gameObject.transform.parent = null;
+					if (!grabbing) {
+						if (IsWalled ()) {
+							if (wallHitLeft) {
+								if (move < 0) {
+									m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+								} else {
+									m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+								}
+							} else {
+								if (move > 0) {
+									m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+								} else {
+									m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+								}
 							}
-						}else{
-							if (move > 0) {
-								m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
-							}else{
-								m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
-							}
+						} else {
+							m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
 						}
-					}else{
-						m_Rigidbody.velocity = new Vector3 (move * maxSpeed, m_Rigidbody.velocity.y, 0f);
+					} else {
+						m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
 					}
-				}else{
-					m_Rigidbody.velocity = new Vector3 (dragSpeed, m_Rigidbody.velocity.y, 0f);
-				}
-			}   //END ON MOVER ELSE
-		} else {
+				}   //END ON MOVER ELSE
+			} else {
 
-			if(IsWalled ())
-			{
-				// If so, stop the movement IN SAME DIRECTION
-				if (wallHitLeft) {
-					if (move < 0) {
-						m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
-					}else{
-						m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
+				if (IsWalled ()) {
+					// If so, stop the movement IN SAME DIRECTION
+					if (wallHitLeft) {
+						if (move < 0) {
+							m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+						} else {
+							m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
+						}
+					} else {
+						if (move > 0) {
+							m_Rigidbody.velocity = new Vector3 (0f, m_Rigidbody.velocity.y, 0f);
+						} else {
+							m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
+						}
 					}
-				}else{
-					if (move > 0) {
-						m_Rigidbody.velocity = new Vector3(0f, m_Rigidbody.velocity.y, 0f);
-					}else{
-						m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
-					}
+				} else {
+					//ALTER SPEED FOR AIR CONTROL IN HERE
+					m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
 				}
-			}else{
-				//ALTER SPEED FOR AIR CONTROL IN HERE
-				m_Rigidbody.velocity = new Vector3 (move * maxSpeed * airSpeedMultiplier, m_Rigidbody.velocity.y, 0f);
 			}
-		}
+
 			if (move > 0 && !facingRight && !grabbing)
 				flip ();
 			if (move < 0 && facingRight && !grabbing)
 				flip ();
-
+		}
 	}
 
 	void Update () {
 
 
-		if (grounded && Input.GetButtonDown ("Jump")) {
+		if (IsGrounded () && Input.GetButtonDown ("Jump") && !playerDead) {
 			gameObject.transform.parent = null;
 			anim.SetBool ("Grounded", false);
 			PowerUps powerupScript = GameObject.Find ("PowerManager").GetComponent<PowerUps> ();
@@ -124,10 +122,10 @@ public class AnimatorTest : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown ("Grab"))
+		if (Input.GetButtonDown ("Grab") && !playerDead)
 		    anim.SetBool("doGrab", true);
 
-		if (Input.GetButton("Grab")) {
+		if (Input.GetButton("Grab") && !playerDead) {
 			anim.SetBool("Grabbing", true);
 			grabbing = true;
 		}else{
@@ -147,17 +145,16 @@ public class AnimatorTest : MonoBehaviour {
 
 	bool IsGrounded () {
 
-		//USE GROUNDED TRIGGER BOX TO DETERMINE GROUNDING
-		GroundedTrigger GroundCheck = transform.FindChild("GroundCheck").gameObject.GetComponent<GroundedTrigger>();
-		//return GroundCheck.bGrounded;
-
-		//UNCOMMENT TO USE RAY CASTING TO CHECK IF PLAYER IS GROUNDED
-		RaycastHit hit;
-		if (GroundCheck.bGrounded || Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround)){
-			return true;
-		}else{
-			return false;
+		if (true) {
+			//USE RAY CASTING TO CHECK IF PLAYER IS GROUNDED
+			RaycastHit hit;
+			return Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, whatIsGround);
+		} else {
+			//USE GROUNDED TRIGGER BOX TO DETERMINE GROUNDING
+			GroundedTrigger GroundCheck = transform.FindChild ("GroundCheck").gameObject.GetComponent<GroundedTrigger> ();
+			return GroundCheck.bGrounded;
 		}
+
 
 	}
 
@@ -167,7 +164,6 @@ public class AnimatorTest : MonoBehaviour {
 	}
 
 	void OnMoverMove () {
-		Debug.Log ("Player to Mover");
 		RaycastHit hit;
 		Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, MovingObjects);
 		hitName = hit.collider.gameObject;
