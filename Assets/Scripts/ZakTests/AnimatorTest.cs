@@ -21,6 +21,9 @@ public class AnimatorTest : MonoBehaviour {
 	GameObject hitName;
 	bool wallHitLeft = false;
 	[HideInInspector] public bool playerDead = false;
+	float onMoveSpeed;
+	[HideInInspector] public bool bInGrabZone = false;
+	[HideInInspector] public float ActiveDragMultiplier;
 
 	private Animator anim;
 	// Use this for initialization
@@ -31,6 +34,7 @@ public class AnimatorTest : MonoBehaviour {
 		m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX |RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
 		//anim["pushPull"].speed = 2.0f;
 		//anim.speed = 2.0f;
+		ActiveDragMultiplier = dragMultiplier;
 	}
 	
 	// Update is called once per frame
@@ -41,10 +45,10 @@ public class AnimatorTest : MonoBehaviour {
 		anim.SetFloat ("vSpeed", m_Rigidbody.velocity.y);
 		
 		if (facingRight) {
-			dragSpeed = move * maxSpeed * dragMultiplier;
+			dragSpeed = move * maxSpeed * ActiveDragMultiplier;
 			dragDirect = move * maxSpeed * dragMultiplier;
 		} else {
-			dragSpeed = move * maxSpeed * dragMultiplier;
+			dragSpeed = move * maxSpeed * ActiveDragMultiplier;
 			dragDirect = move * maxSpeed * dragMultiplier * -1f;
 		}
 		anim.SetFloat ("dragSpeed", dragDirect);
@@ -53,6 +57,10 @@ public class AnimatorTest : MonoBehaviour {
 				if (OnMover ()) {
 					//DO THIS IF THE PLAYER IS ON A MOVER
 					OnMoverMove ();
+
+					transform.localPosition = new Vector3 (transform.localPosition.x + (move * onMoveSpeed), transform.localPosition.y, transform.localPosition.z);
+					Debug.Log (onMoveSpeed);
+					//Debug.Log (transform.localPosition.x);
 				} else {
 					gameObject.transform.parent = null;
 					if (!grabbing) {
@@ -122,10 +130,10 @@ public class AnimatorTest : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown ("Grab") && !playerDead)
+		if (Input.GetButtonDown ("Grab") && !playerDead && bInGrabZone)
 		    anim.SetBool("doGrab", true);
 
-		if (Input.GetButton("Grab") && !playerDead) {
+		if (Input.GetButton("Grab") && !playerDead && bInGrabZone) {
 			anim.SetBool("Grabbing", true);
 			grabbing = true;
 		}else{
@@ -167,8 +175,12 @@ public class AnimatorTest : MonoBehaviour {
 		RaycastHit hit;
 		Physics.Raycast (groundCheck.position, -Vector3.up, out hit, groundRadius, MovingObjects);
 		hitName = hit.collider.gameObject;
-		float move = Input.GetAxis ("Horizontal");
-		gameObject.transform.parent = hitName.transform;
+		//onMoveSpeed = maxSpeed - hitName.GetComponent<TwoPointMoverZ> ().bSpeed;
+		onMoveSpeed = (maxSpeed - Mathf.Abs (hitName.GetComponent<TwoPointMoverZ> ().velocity.x))*Time.deltaTime;
+		if (gameObject.transform.parent != hitName.transform) {
+			gameObject.transform.parent = hitName.transform;
+		}
+		//gameObject.GetComponent<FixedJoint>().connectedBody = 
 	}
 	
 	bool IsWalled () {

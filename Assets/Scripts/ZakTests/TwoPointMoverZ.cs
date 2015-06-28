@@ -15,6 +15,10 @@ public class TwoPointMoverZ : MonoBehaviour {
     public float bAngle;
     public float bDistance;
     public float bDegrees;
+	Vector3 oldPos;
+	Vector3 newPos;
+	Vector3 media;
+	[HideInInspector] public Vector3 velocity;
 	//private GameObject powerManager;
 
 	// Use this for initialization
@@ -29,6 +33,7 @@ public class TwoPointMoverZ : MonoBehaviour {
             bAngle = Mathf.PI / 2;
         bDegrees = bAngle * (180 / Mathf.PI);
         outgoing = true;
+		oldPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -51,5 +56,10 @@ public class TwoPointMoverZ : MonoBehaviour {
 				transform.position = Vector3.MoveTowards (transform.position, bCurTarget.transform.position, step);
 			}
 		}
+		newPos = transform.position;
+		media = newPos - oldPos;
+		velocity = media / Time.deltaTime;
+		oldPos = newPos;
+		newPos = transform.position;
 	}
 }
