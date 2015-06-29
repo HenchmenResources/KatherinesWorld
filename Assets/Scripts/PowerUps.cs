@@ -97,7 +97,7 @@ public class PowerUps : MonoBehaviour {
 	void Update () {
 
 		//Use selected power.
-		if (Input.GetButton ("Fire1") && loadedPower != null) {
+		if (Input.GetButton ("Use Power") && loadedPower != null) {
 			if (loadedPower == "Strength") {
 				if (!enabledStrength && manaPool >= manaStrength) {
 					enablePower ("Strength");
@@ -292,7 +292,7 @@ public class PowerUps : MonoBehaviour {
 			timerStrength = Time.time;
 			enabledStrength = true;
 			particleStrength.GetComponent<ParticleSystem>().Play();
-            PlayerChar.gameObject.GetComponent<Player>().jumpSpeed = 12.0f;
+            //PlayerChar.gameObject.GetComponent<Player>().jumpSpeed = 12.0f;
 			break;
 		case "Freeze":
 			timerFreeze = Time.time;

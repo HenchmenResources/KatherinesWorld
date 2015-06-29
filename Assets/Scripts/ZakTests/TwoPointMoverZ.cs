@@ -8,13 +8,7 @@ public class TwoPointMoverZ : MonoBehaviour {
 	public GameObject bCurTarget;
 	public bool canBeFrozen = true;
 	public float bSpeed = 2.0f;
-    public bool outgoing;
-    public float bTriangleH;
-    public float bTriangleX;
-    public float bTriangleY;
-    public float bAngle;
     public float bDistance;
-    public float bDegrees;
 	Vector3 oldPos;
 	Vector3 newPos;
 	Vector3 media;
@@ -25,14 +19,6 @@ public class TwoPointMoverZ : MonoBehaviour {
 	void Start () {
 		PowerUps powerupScript = GameObject.Find ("PowerManager").GetComponent<PowerUps> ();
 		bCurTarget = bTargetTwo;
-        bTriangleH = (bTargetTwo.transform.position - bTargetOne.transform.position).magnitude;
-        bTriangleX = Mathf.Abs((bTargetTwo.transform.position.x - bTargetOne.transform.position.x));
-        bTriangleY = Mathf.Abs((bTargetTwo.transform.position.y - bTargetOne.transform.position.y));
-        bAngle = Mathf.Tan(bTriangleY / bTriangleX);
-        if (float.IsNaN(bAngle))
-            bAngle = Mathf.PI / 2;
-        bDegrees = bAngle * (180 / Mathf.PI);
-        outgoing = true;
 		oldPos = transform.position;
 	}
 	
@@ -44,22 +30,24 @@ public class TwoPointMoverZ : MonoBehaviour {
 			float step = bSpeed * Time.deltaTime;
 			bDistance = Vector3.Distance (bCurTarget.transform.position, transform.position);
 			if (bDistance < 0.25f) {
-				//CHANGE TARGET ONCE WE GET TO THE CURRENT TARGET
+				//START CHANGE TARGET ONCE WE GET TO THE CURRENT TARGET
 				if (bCurTarget == bTargetOne) {
 					bCurTarget = bTargetTwo;
-					outgoing = true;
 				} else {
 					bCurTarget = bTargetOne;
-					outgoing = false;
 				}
+				//END CHANGE TARGET ONCE WE GET TO THE CURRENT TARGET
 			} else {
+				//Move the Platform towars current target
 				transform.position = Vector3.MoveTowards (transform.position, bCurTarget.transform.position, step);
 			}
 		}
+		//START Calculate the velocity of the mover
 		newPos = transform.position;
 		media = newPos - oldPos;
 		velocity = media / Time.deltaTime;
 		oldPos = newPos;
 		newPos = transform.position;
+		//END Calculate the velocity of the mover
 	}
 }

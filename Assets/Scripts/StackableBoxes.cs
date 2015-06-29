@@ -6,6 +6,9 @@ public class StackableBoxes : MonoBehaviour {
 	public LayerMask GroundedMask;
 	public LayerMask ParentalTest;
 	public bool bShowDebug = false;
+	public GameObject bParent;
+	public bool bStacked = false;
+	public Transform StackParent;
 
 	// Use this for initialization
 	void Start () {
@@ -20,26 +23,37 @@ public class StackableBoxes : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (IsInLayerMask (other.gameObject, GroundedMask)) {
 			bGrounded = true;
-			if (IsInLayerMask(other.gameObject, ParentalTest) && gameObject.transform.parent.gameObject.transform.parent.name != "Kathetrine"){
+			bParent = gameObject.transform.parent.gameObject;
+			if (IsInLayerMask(other.gameObject, ParentalTest) && gameObject.transform.parent.parent == null){
 				//SET THE COLLIDED OBJECT AS THIS ONES PARENT
-				gameObject.transform.parent = other.transform;
+				//bParent.transform.parent = other.gameObject.transform;
+				StackParent = other.gameObject.transform;
+				//bParent.GetComponent<Rigidbody>().isKinematic = true;
+				bStacked = true;
 			}
 		}
 	}
 
 	void OnTriggerStay (Collider other) {
-		if (bShowDebug)
-			Debug.Log (gameObject.transform.parent);
 		if (IsInLayerMask (other.gameObject, GroundedMask)) {
 			bGrounded = true;
-			if (IsInLayerMask (other.gameObject, ParentalTest) && gameObject.transform.parent.gameObject.transform.parent.name != "Kathetrine") {
-				gameObject.transform.parent = other.transform;
+			bParent = gameObject.transform.parent.gameObject;
+			if (IsInLayerMask (other.gameObject, ParentalTest) && gameObject.transform.parent.parent == null) {
+				//bParent.transform.parent = other.gameObject.transform;
+				if (bShowDebug)
+					Debug.Log (bParent.transform.parent);
+				//bParent.GetComponent<Rigidbody>().isKinematic = true;
+				StackParent = other.gameObject.transform;
+				bStacked = true;
+
 			}
 		}
 	}
 
 	void OnTriggerExit () {
 		bGrounded = false;
+		//bParent.GetComponent<Rigidbody> ().isKinematic = false;
+		bStacked = false;
 	}
 
 	private bool IsInLayerMask(GameObject obj, LayerMask layerMask)

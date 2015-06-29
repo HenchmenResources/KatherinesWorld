@@ -35,8 +35,7 @@ public class zDraggabler : MonoBehaviour {
 					m_rigidbody.mass = 1.0f;
 					ThisParent.transform.parent = PlayerObj.transform;
 					PlayerObj.GetComponent<AnimatorTest>().ActiveDragMultiplier = PlayerObj.GetComponent<AnimatorTest>().dragMultiplier;
-				}
-				if (bIsLarge && GameObject.Find ("PowerManager").GetComponent<PowerUps>().enabledStrength) {
+				}else if (bIsLarge && GameObject.Find ("PowerManager").GetComponent<PowerUps>().enabledStrength) {
 					//If the box is a Large box and the player has strength enabled make the player it's parent and move it
 					m_rigidbody.isKinematic = true;
 					m_rigidbody.mass = 1.0f;
@@ -47,14 +46,23 @@ public class zDraggabler : MonoBehaviour {
 				}
 
 			}else{
-				m_rigidbody.isKinematic = false;
+				if (!GroundCheck.bStacked) {
+					m_rigidbody.isKinematic = false;
+					ThisParent.transform.parent = null;
+				}
 				m_rigidbody.mass = 100.0f;
-				ThisParent.transform.parent = null;
+
 			}
 		} else {
+			if (GroundCheck.bStacked) {
+				ThisParent.transform.parent = GroundCheck.StackParent;
+				m_rigidbody.isKinematic = true;
+				m_rigidbody.mass = 1.0f;
+			}else{
 			m_rigidbody.mass = 100.0f;
 			m_rigidbody.isKinematic = false;
 			ThisParent.transform.parent = null;
+			}
 		}
 	}
 
@@ -77,5 +85,9 @@ public class zDraggabler : MonoBehaviour {
 			bInGrabbingZone = false;
 			other.gameObject.GetComponent<AnimatorTest>().bInGrabZone = false;
 		}
+	}
+
+	void doDragging () {
+
 	}
 }
