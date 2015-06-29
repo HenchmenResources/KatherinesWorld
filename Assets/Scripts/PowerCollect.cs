@@ -23,6 +23,7 @@ public class PowerCollect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		PowerManager = GameObject.Find ("PowerManager");
 		rend = PowerManager.GetComponent<Renderer>();
 		PowerUps powerupScript = PowerManager.GetComponent<PowerUps> ();
 	}
@@ -30,6 +31,8 @@ public class PowerCollect : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		PowerUps powerupScript = PowerManager.GetComponent<PowerUps> ();
+		rend = PowerManager.GetComponent<Renderer>();
 			switch (SetPower) {
 			case bSetPower.Strength:
 				gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", textureStrength);
@@ -58,7 +61,10 @@ public class PowerCollect : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter () {
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Player"){
+			PowerManager = GameObject.Find ("PowerManager");
+			rend = PowerManager.GetComponent<Renderer>();
 		PowerUps powerupScript = PowerManager.GetComponent<PowerUps> ();
 		ProceduralMaterial substance = rend.sharedMaterial as ProceduralMaterial;
 		switch (SetPower) {
@@ -81,7 +87,7 @@ public class PowerCollect : MonoBehaviour {
 			powerupScript.selectPower ("Freeze", powerupScript.colorFreeze);
 			break;
 		case bSetPower.Light:
-			powerupScript.bHasLight= true;
+			powerupScript.bHasLight = true;
 			powerupScript.powersEnabled = true;
 			if (!substance.GetProceduralBoolean ("EnablePowers")) {
 				substance.SetProceduralBoolean ("EnablePowers", true);
@@ -101,7 +107,9 @@ public class PowerCollect : MonoBehaviour {
 		default:
 			break;
 		}
+			Debug.Log ("Power Added");
 		Destroy (gameObject);
+	}
 	}
 
 }

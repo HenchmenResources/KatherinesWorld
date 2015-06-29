@@ -59,7 +59,7 @@ public class AnimatorTest : MonoBehaviour {
 					OnMoverMove ();
 
 					transform.localPosition = new Vector3 (transform.localPosition.x + (move * onMoveSpeed), transform.localPosition.y, transform.localPosition.z);
-					Debug.Log (onMoveSpeed);
+					//Debug.Log (onMoveSpeed);
 					//Debug.Log (transform.localPosition.x);
 				} else {
 					gameObject.transform.parent = null;

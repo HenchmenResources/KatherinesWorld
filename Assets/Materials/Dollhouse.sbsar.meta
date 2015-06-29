@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 994f7dad3e2ec964082fa9240dad9e3d
-timeCreated: 1435111027
+timeCreated: 1435556770
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -60,7 +60,7 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _EmissionMap
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -68,6 +68,20 @@ SubstanceImporter:
         data:
           first:
             name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -82,20 +96,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _OcclusionMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -115,10 +115,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -127,8 +123,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -143,15 +147,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
       colors:
         data:
@@ -201,7 +201,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 4
+      loadingBehavior: 2
   - serializedVersion: 16
     name: DH_Mat_6x6_Upper_Floor
     prototypeName: DH_Mat_6x6_Upper_Floor
@@ -250,7 +250,7 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _EmissionMap
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -258,6 +258,20 @@ SubstanceImporter:
         data:
           first:
             name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -272,20 +286,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _OcclusionMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -305,10 +305,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -317,8 +313,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -333,15 +337,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
       colors:
         data:
@@ -391,7 +391,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 4
+      loadingBehavior: 2
   - serializedVersion: 16
     name: Dollhouse
     prototypeName: Dollhouse
@@ -447,7 +447,7 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _EmissionMap
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -455,6 +455,20 @@ SubstanceImporter:
         data:
           first:
             name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -469,20 +483,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _OcclusionMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -502,10 +502,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -514,8 +510,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -530,15 +534,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
       colors:
         data:
@@ -644,7 +644,7 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _EmissionMap
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -652,6 +652,20 @@ SubstanceImporter:
         data:
           first:
             name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -666,20 +680,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _OcclusionMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -699,10 +699,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -711,8 +707,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -727,15 +731,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
       colors:
         data:
@@ -841,7 +841,7 @@ SubstanceImporter:
             offset: {x: 0, y: 0}
         data:
           first:
-            name: _EmissionMap
+            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -849,6 +849,20 @@ SubstanceImporter:
         data:
           first:
             name: _ParallaxMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _OcclusionMap
+          second:
+            texture: {instanceID: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
+        data:
+          first:
+            name: _EmissionMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -863,20 +877,6 @@ SubstanceImporter:
         data:
           first:
             name: _DetailAlbedoMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _OcclusionMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
             scale: {x: 1, y: 1}
@@ -896,10 +896,6 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Parallax
-          second: .0199999996
-        data:
-          first:
             name: _ZWrite
           second: 1
         data:
@@ -908,8 +904,16 @@ SubstanceImporter:
           second: .5
         data:
           first:
+            name: _Metallic
+          second: 0
+        data:
+          first:
             name: _BumpScale
           second: 1
+        data:
+          first:
+            name: _Parallax
+          second: .0199999996
         data:
           first:
             name: _OcclusionStrength
@@ -924,15 +928,11 @@ SubstanceImporter:
           second: 0
         data:
           first:
-            name: _Mode
-          second: 0
-        data:
-          first:
             name: _EmissionScaleUI
           second: 0
         data:
           first:
-            name: _Metallic
+            name: _Mode
           second: 0
       colors:
         data:
@@ -982,7 +982,7 @@ SubstanceImporter:
       textureWidth: 512
       textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 5
+      loadingBehavior: 2
   deletedPrototypes: []
   userData: 
   assetBundleName: 
